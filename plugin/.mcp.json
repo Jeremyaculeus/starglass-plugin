@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "starglass-research": {
+      "type": "http",
+      "url": "https://aculeus.ai/api/mcp",
+      "oauth": {
+        "scopes": "plugin-research:read"
+      }
+    }
+  }
+}

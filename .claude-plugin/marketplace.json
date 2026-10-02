@@ -1,0 +1,14 @@
+{
+  "name": "starglass",
+  "description": "StarGlass primary-source research workflow and read-only MCP tools.",
+  "owner": {
+    "name": "StarGlass"
+  },
+  "plugins": [
+    {
+      "name": "starglass-research",
+      "source": "./plugin",
+      "description": "Citation-backed research across selected official public records."
+    }
+  ]
+}
