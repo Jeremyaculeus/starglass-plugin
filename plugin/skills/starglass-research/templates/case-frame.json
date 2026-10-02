@@ -1,0 +1,22 @@
+{
+  "contract": "starglass-quality-client-v1",
+  "case_id": "host-chosen-local-id",
+  "question": "",
+  "requested_slots": [],
+  "entities": [],
+  "time_window": {
+    "start": null,
+    "end": null,
+    "date_basis": "unresolved"
+  },
+  "hypotheses": [],
+  "coverage_plan": [],
+  "identity_resolutions": [],
+  "authorized_host_evidence": [],
+  "constraints": {
+    "scope": [],
+    "available_limits": {},
+    "known_gaps": []
+  },
+  "revision": 1
+}
