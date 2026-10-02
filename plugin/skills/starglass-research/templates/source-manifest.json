@@ -1,0 +1,14 @@
+{
+  "contract": "starglass-quality-client-v1",
+  "case_id": "host-chosen-local-id",
+  "catalogue": {
+    "captured_at": null,
+    "response_path": null,
+    "exposed_tools": [],
+    "capability_gaps": []
+  },
+  "sources": [],
+  "passages": [],
+  "captured_tool_responses": [],
+  "host_evidence": []
+}

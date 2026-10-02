@@ -1,9 +1,9 @@
 {
   "name": "starglass-research",
-  "version": "0.1.1",
-  "description": "Read-only research across selected official public-record sources.",
+  "version": "0.2.0",
+  "description": "Host-led research, skeptical review and mechanical evidence checks across official records.",
   "author": {
-    "name": "StarGlass"
+    "name": "Aculeus"
   },
   "defaultEnabled": false
 }

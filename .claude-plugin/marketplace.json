@@ -1,8 +1,8 @@
 {
   "name": "starglass",
-  "description": "StarGlass primary-source research workflow and read-only MCP tools.",
+  "description": "StarGlass host-led research workflow and read-only evidence tools.",
   "owner": {
-    "name": "StarGlass"
+    "name": "Aculeus"
   },
   "plugins": [
     {

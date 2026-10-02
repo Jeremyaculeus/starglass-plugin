@@ -1,0 +1,18 @@
+{
+  "contract": "starglass-quality-client-v1",
+  "case_id": "host-chosen-local-id",
+  "batches": [],
+  "coverage": [],
+  "operation_usage": {
+    "observed": null,
+    "estimated": null,
+    "basis": "Record actual catalogue or operation responses; do not invent usage."
+  },
+  "stopping_decision": {
+    "state": "in_progress",
+    "reason": "",
+    "unexamined_sources": [],
+    "blocked_gaps": [],
+    "next_decisive_evidence": []
+  }
+}

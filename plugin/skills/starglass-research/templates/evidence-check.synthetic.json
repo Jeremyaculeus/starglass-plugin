@@ -1,0 +1,76 @@
+{
+  "schema_version": "1",
+  "case_frame": {
+    "case_id": "synthetic-example",
+    "question": "What amount does this synthetic fixture show?",
+    "entity_ids": [],
+    "time_scope": "synthetic schema example only"
+  },
+  "receipts": [
+    {
+      "receipt_id": "r1",
+      "source": "fixture",
+      "record_id": "row1",
+      "text": "0.20",
+      "citation": {
+        "id": "fixture1",
+        "canonical_url": "https://example.invalid/row1",
+        "publisher": "Synthetic fixture; not research evidence",
+        "retrieved_at": "2026-10-02T00:00:00.000Z",
+        "content_type": "text/plain",
+        "representation": "document_text",
+        "raw_sha256": "0e1a3f9422355b9afe6d53b976c5dc9c638e6a66d70cf2320d02c14761197e92",
+        "text_sha256": "0e1a3f9422355b9afe6d53b976c5dc9c638e6a66d70cf2320d02c14761197e92",
+        "returned_text_sha256": "0e1a3f9422355b9afe6d53b976c5dc9c638e6a66d70cf2320d02c14761197e92",
+        "parser_version": "fixture-v1",
+        "byte_count": 4,
+        "returned_chars": 4,
+        "total_lines": 1,
+        "start_line": 1,
+        "end_line": 1,
+        "truncated": false,
+        "extraction_partial": false,
+        "next_start_line": null
+      }
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "cl1",
+      "text": "The selected synthetic fixture amount is 0.20.",
+      "scope": "cited_spans",
+      "bindings": [
+        { "receipt_id": "r1", "start_line": 1, "end_line": 1, "quote": "0.20" }
+      ],
+      "reviewer_conclusion": {
+        "status": "supported",
+        "reviewer_id": "host-example",
+        "note": "Synthetic schema demonstration; not a real review."
+      }
+    }
+  ],
+  "arithmetic": [
+    {
+      "calculation_id": "calc1",
+      "operation": "sum",
+      "unit": "synthetic_units",
+      "values": [
+        {
+          "receipt_id": "r1",
+          "start_line": 1,
+          "end_line": 1,
+          "quote": "0.20",
+          "row_id": "synthetic-row1",
+          "unit": "synthetic_units",
+          "value": "0.20",
+          "value_start_char": 0
+        }
+      ],
+      "population": {
+        "scope": "selected_rows",
+        "expected_row_ids": ["synthetic-row1"],
+        "source_keys": [{"source": "fixture", "record_id": "row1"}]
+      }
+    }
+  ]
+}
