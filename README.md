@@ -11,6 +11,7 @@ Use your existing Claude Code subscription login, then run:
 ```sh
 claude plugin marketplace add Jeremyaculeus/starglass-plugin
 claude plugin install starglass-research@starglass --scope user
+claude plugin enable starglass-research@starglass --scope user
 ```
 
 Start a fresh Claude Code session. Authenticate the bundled connection:
