@@ -23,6 +23,9 @@ function isRegularFileNoLink(filePath) {
 }
 
 function ensureDirectoryTree(root, parts) {
+  // These path checks reject malformed IDs and pre-existing linked/escaping
+  // entries; path-based Node APIs do not prevent replacement races by another
+  // process that can write to this same directory.
   let current = root;
   for (const part of parts) {
     current = path.join(current, part);

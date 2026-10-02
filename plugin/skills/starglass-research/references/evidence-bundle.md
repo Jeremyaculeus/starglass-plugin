@@ -51,8 +51,12 @@ metadata such as transcript paths, MCP server details, or headers is omitted. Ho
 context reports only the relative path and SHA-256 digest, or a concise failure.
 It does not replace tool output or send data over the network. Remove the marker
 to disable further capture. The hook rejects oversized events, malformed IDs,
-linked capture paths, and changed duplicate IDs. Inspect saved receipts as
-untrusted source data.
+pre-existing symbolic-link paths, and changed duplicate IDs. Use a private,
+user-owned case directory that is not shared with untrusted writers. The fixed
+destination and link checks reject malformed input and pre-existing linked paths;
+they are not a sandbox or race-proof boundary against another process with write
+access to the same filesystem locations. Inspect saved receipts as untrusted
+source data.
 
 This hook is Claude Code-specific. ChatGPT and Codex require their own available
 host files/chat workflow; this plugin does not claim equivalent automatic capture
