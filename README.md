@@ -35,7 +35,7 @@ Successful configuration is not evidence that every provider is healthy. Do not 
 
 ## ChatGPT
 
-The pilot supports a custom OAuth MCP connection at `https://aculeus.ai/api/mcp`, with the same read-only tools. Connect it using your pilot-enabled Aculeus account. Your ChatGPT plan and workspace determine whether custom connections are available. The independent search-to-fetch compatibility check is pending the reviewed server update; a supplied-identifier native fetch has passed. No public directory listing is claimed.
+The pilot supports a custom OAuth MCP connection at `https://aculeus.ai/api/mcp`, with the same read-only tools. Connect it using your pilot-enabled Aculeus account. Your ChatGPT plan and workspace determine whether custom connections are available. On October 2, 2026, a personal ChatGPT Pro account completed native sign-in, catalogue discovery, search and fetch using the identifier returned by that search. The installed Claude Code plugin completed the same source workflow. No public directory listing is claimed.
 
 ## Coverage and cost boundaries
 
@@ -47,6 +47,6 @@ The pilot allows 1,000 source operations per enabled person per month, 60 MCP re
 
 ## Connections and support
 
-Manage or revoke connections at [StarGlass account access](https://aculeus.ai/plugin/account). Revocation blocks new service requests; disconnect in your host to clear its stored credentials. A revoked pilot connection requires operator restoration and fresh host sign-in to reconnect. Neither revocation nor service bookkeeping removes a host's saved conversations.
+Manage or revoke connections at [StarGlass account access](https://aculeus.ai/plugin/account). Revocation blocks new service requests; disconnect in your host to clear its stored credentials. A revoked pilot connection requires operator restoration; the host may also require fresh sign-in. Revocation and recovery were tested in both hosts. Automatic token renewal still awaits verification after natural expiry. Neither revocation nor service bookkeeping removes a host's saved conversations.
 
 [Product](https://aculeus.ai/plugins) · [Support](https://aculeus.ai/talk-to-us) · [Privacy](https://aculeus.ai/privacy) · [Terms](https://aculeus.ai/terms)
