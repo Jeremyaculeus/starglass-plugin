@@ -36,7 +36,11 @@ search exhaustion alone does not define the question's coverage.
 Claude Code installations can capture successful StarGlass tool events through the
 packaged PostToolUse hook. It is disabled unless the user has authorized storage
 in the current case directory and that directory contains this regular local file.
-When the user authorizes local case storage, the host may create the marker here:
+The Claude hook process must have Node.js 18 or later available as node on PATH.
+The plugin does not install Node or access the network to obtain it. If Node is
+unavailable, disclose that automatic capture could not run and continue with the
+normal authorized host-file or chat-based evidence bundle.
+When the user authorizes local case storage, the host may create this marker:
 
 ```json
 {"enabled":true,"schema_version":"1"}
