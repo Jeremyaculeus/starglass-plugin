@@ -50,3 +50,9 @@ The pilot allows 1,000 source operations per enabled person per month, 60 MCP re
 Manage or revoke connections at [StarGlass account access](https://aculeus.ai/plugin/account). Revocation blocks new service requests; disconnect in your host to clear its stored credentials. A revoked pilot connection requires operator restoration; the host may also require fresh sign-in. Revocation and recovery were tested in both hosts. Automatic token renewal still awaits verification after natural expiry. Neither revocation nor service bookkeeping removes a host's saved conversations.
 
 [Product](https://aculeus.ai/plugins) · [Support](https://aculeus.ai/talk-to-us) · [Privacy](https://aculeus.ai/privacy) · [Terms](https://aculeus.ai/terms)
+
+## Recorded native evidence
+
+[Watch the 79-second evidence walkthrough](https://raw.githubusercontent.com/Jeremyaculeus/starglass-plugin/main/docs/StarGlass-native-evidence-2026-10-02-r2.mp4) · [Captions](docs/StarGlass-native-evidence-2026-10-02-r2.srt) · [Scope and provenance](docs/README.md)
+
+The walkthrough uses dated screenshots of actual October 2, 2026 operator results: returned NPPES identifier, bounded citation receipt, revocation refusal and restored host connections. It is a captioned, silent evidence sequence, not a continuous live recording, dedicated reviewer run or directory approval. It contains public/synthetic material only. Automatic token renewal remains pending verification.

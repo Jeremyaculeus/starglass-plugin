@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:09,000
+A dated walkthrough of existing screenshots. This is not a continuous live recording or a new reviewer run.
+
+2
+00:00:09,000 --> 00:00:24,000
+The actual native answer preserves source=nppes and record_id=1881018208 in the returned Mayo Clinic title. Configured is not a provider health check.
+
+3
+00:00:24,000 --> 00:00:42,000
+The receipt shows the CMS source URL, retrieval time and returned lines 1-30 of 60. The remaining lines are disclosed. Registry registration is not licensure.
+
+4
+00:00:42,000 --> 00:00:55,000
+The earlier exact-client revocation test returned HTTP 403 FORBIDDEN. This is an observed refusal, not a claim of a complete security audit.
+
+5
+00:00:55,000 --> 00:01:07,000
+The account control shows ChatGPT and Claude Code connected after recovery. Recovery is distinct from automatic token renewal.
+
+6
+00:01:07,000 --> 00:01:19,000
+Original screenshots remain unchanged. Cropping excludes host chrome, personal profile details and unrelated interface content.
