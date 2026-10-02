@@ -31,7 +31,7 @@ Confirm what the current host actually exposes. When the skill is unavailable,
 the upgraded server advertises the core workflow through MCP initialization and
 the `research_protocol` returned by `sources_list`. Read that live protocol; its
 presence does not prove the host followed it. The host can also follow the
-[public workflow](../../../../docs/RESEARCH-WORKFLOW.md)
+[bundled workflow](research-loop.md)
 and supplied templates as instructions, subject to its tools and policies.
 
 Do not promise native subagents, filesystem access, persistent artifact storage,
