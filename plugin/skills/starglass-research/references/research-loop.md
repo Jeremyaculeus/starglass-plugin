@@ -48,7 +48,8 @@ scoped searches, structured acquired records, or cursors.
 For each purposeful batch: state the coverage target; call the selected sources;
 acquire the identity, date, figure, and surrounding context through captured
 structured records or fetched source passages; capture responses;
-deduplicate exact records while retaining distinct versions; update the ledger;
+avoid counting the same captured receipt twice while retaining distinct versions
+and provider row occurrences whose transaction identity is uncertain; update the ledger;
 decide which gap the next batch will close. Parallel independent read-only calls
 are useful if the host supports them and shared limits allow them. Sequence calls
 that depend on a returned identifier or cursor.
@@ -73,7 +74,11 @@ discard sources based on a fixed score, top-k limit, or prose length.
 
 **USAspending:** distinguish discovery award summaries, cumulative award amounts,
 and individual transaction obligations. Sum only the explicitly selected captured
-transaction field over a deduplicated, scoped record set. A transaction obligation
+transaction field over a scoped record set. Deduplicate underlying transactions
+only when their distinct identity is proven; a shared award ID or identical row
+representation is insufficient. Preserve and count ambiguous provider row
+occurrences, label capture sums accordingly, and do not present them as certified
+distinct-transaction totals. A transaction obligation
 can be negative. Do not add cumulative award totals to transaction obligations,
 equate obligations with payments, or treat a federal source as all funding.
 Record recipient UEI, award/transaction identity, action date, award type, field,
