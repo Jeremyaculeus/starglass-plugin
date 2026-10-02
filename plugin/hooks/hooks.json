@@ -1,0 +1,16 @@
+{
+  "description": "Opt-in local capture of StarGlass source tool responses.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "^mcp__plugin_starglass-research_starglass-research__(sources_list|source_search|source_fetch|evidence_check)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/capture.js\""
+          }
+        ]
+      }
+    ]
+  }
+}

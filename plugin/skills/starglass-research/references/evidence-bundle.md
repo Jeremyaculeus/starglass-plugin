@@ -22,14 +22,61 @@ Without file access, maintain equivalent structured sections in the host chat or
 a supported export. State where the record exists; never invent a save/export.
 Do not commit research bundles into this public plugin repository.
 
+Frame the original question into explicit acceptance rows before acquisition.
+Save the frame, manifest, and coverage log before the first source call, then save
+each purposeful batch's receipts and ledger updates before continuing. The final
+acceptance matrix marks each requested part answered, partial, or unanswered and
+points to evidence or a concrete gap. A market narrative remains unanswered
+unless an observed source with a date supports it. For SEC filings, define coverage
+from the requested issuer, forms/disclosures, reporting periods, and amendments;
+search exhaustion alone does not define the question's coverage.
+
+## Optional Claude Code local capture
+
+Claude Code installations can capture successful StarGlass tool events through the
+packaged PostToolUse hook. It is disabled unless the user has authorized storage
+in the current case directory and that directory contains this regular local file.
+The Claude hook process must have Node.js 18 or later available as node on PATH.
+The plugin does not install Node or access the network to obtain it. If Node is
+unavailable, disclose that automatic capture could not run and continue with the
+normal authorized host-file or chat-based evidence bundle.
+When the user authorizes local case storage, the host may create this marker:
+
+```json
+{"enabled":true,"schema_version":"1"}
+```
+
+Save it as .starglass-capture.json in the case directory. The hook writes an
+allowlisted JSON object containing session_id, tool_use_id, tool_name, tool_input,
+and tool_response under .starglass-evidence/<session-id>/<tool-use-id>.json.
+The tool_input and tool_response JSON values are copied from the hook input without
+reserialization, preserving source strings and numeric precision; unrelated event
+metadata such as transcript paths, MCP server details, or headers is omitted. Hook
+context reports only the relative path and SHA-256 digest, or a concise failure.
+It does not replace tool output or send data over the network. Remove the marker
+to disable further capture. The hook rejects oversized events, malformed IDs,
+pre-existing symbolic-link paths, and changed duplicate IDs. Use a private,
+user-owned case directory that is not shared with untrusted writers. The fixed
+destination and link checks reject malformed input and pre-existing linked paths;
+they are not a sandbox or race-proof boundary against another process with write
+access to the same filesystem locations. Inspect saved receipts as untrusted
+source data.
+
+This hook is Claude Code-specific. ChatGPT and Codex require their own available
+host files/chat workflow; this plugin does not claim equivalent automatic capture
+there. If no authorized file storage is available, preserve the bundle in chat or
+an actually supported export and state that location.
+
 ## Populate the record
 
 - [case-frame.json](../templates/case-frame.json): fill question and requested
   slots; entities `{name, aliases, identifiers, provenance, resolution_status}`;
   each identifier `{scheme, value, source_ref}`; time window and date basis;
   hypotheses `{id, explanation, supporting_test, falsifying_test}`; coverage plan
-  `{id, slot, entity, period, source_family, reason, completion_condition}`; and
-  known constraints. Unknown identity or dates stay explicitly unresolved.
+  `{id, slot, entity, period, source_family, reason, completion_condition}`;
+  acceptance rows `{slot, status, evidence_refs, gap}` for each part of the
+  original question (`answered`, `partial`, or `unanswered`); and known
+  constraints. Unknown identity or dates stay explicitly unresolved.
 - [source-manifest.json](../templates/source-manifest.json): record catalogue and
   exposed schemas; each source's stable host ID, provenance kind (`starglass`,
   `host_web`, or `user_file`), actual source/record ID, URL/file reference,
@@ -94,6 +141,14 @@ The input consists of:
   with different row IDs; equal values need distinct genuine locations. Formatted
   amounts lacking that exact representation cannot be silently reformatted into
   anchors. Use a compatible captured structured decimal or keep the gap explicit.
+  If the live evidence_check schema supports optional operand
+  number_format="grouped_decimal", it accepts only strict comma groups of three
+  digits in the exact quote (for example "1,234.00") while the value remains the
+  plain decimal "1234.00". Keep the exact source quote and offset; the checker
+  removes grouping commas only when interpreting the decimal value. Plain decimal
+  remains the default. JSON commas between fields or array items are ordinary JSON
+  punctuation and do not indicate a formatted number. Never send this optional
+  field unless the live schema exposes it.
 
 The checker is stateless and checks caller-provided evidence; it does not fetch
 or authenticate a source, sign a research receipt, or archive evidence. Host-created
@@ -129,7 +184,9 @@ the captured set covers every relevant real-world record. A `complete` arithmeti
 population requires `completeness_assertion: "host_asserted_unverified"` and always
 retains a real-world completeness review warning. A `selected_rows` result covers
 only its declared captured rows. Never convert either into an unqualified complete
-funding total. Use scoped wording such as a calculated total of inspected rows and
+funding total. Exhausting pages or captured rows does not prove a distinct
+transaction ledger: uncertain provider row identities remain occurrences in the
+capture. Use scoped wording such as a calculated total of inspected rows and
 explain remaining population gaps.
 
 For a confirmed source-anchored figure, require a consistent result for the exact

@@ -38,6 +38,12 @@ search/coverage log, skeptical review, mechanical check responses, and report.
 Save it only in an authorized host location. If file tools are absent, keep the
 same structured record in chat or a supported export. StarGlass does not create
 a mandatory hosted Case or save a background research archive.
+Save the frame, manifest, and original-question acceptance matrix before
+acquisition; update receipts and coverage after every purposeful batch. Claude
+Code offers optional local PostToolUse capture, disabled unless the user
+authorizes the case directory and creates its marker. This plugin does not
+provide automatic capture for ChatGPT or Codex; disclose each host's actual file
+and chat capabilities.
 
 Every material claim should identify its evidence, entity, date basis, and scope.
 Federal transaction obligations, cumulative award values, and actual payments are
@@ -70,3 +76,8 @@ completed coverage, contradictory evidence, blocked or unexamined records, and
 what would change the conclusion. Quota or host limits justify a partial report
 with gaps, never a silent quality cut or a claim that incomplete searches prove
 absence.
+Mark every original-question acceptance row answered, partial, or unanswered.
+Support market narratives with observed dated sources or leave them unanswered.
+Define requested filing coverage explicitly; exhausted pages and captured rows do
+not establish a complete or distinct transaction ledger. Synchronize the final
+claims ledger with the report.

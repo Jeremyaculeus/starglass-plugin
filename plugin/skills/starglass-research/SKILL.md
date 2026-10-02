@@ -14,13 +14,19 @@ Read [the research loop](references/research-loop.md) before substantive researc
 Use [the bundle guide](references/evidence-bundle.md) and its linked templates when
 keeping a portable host-owned record. Load [the review brief](references/skeptical-review.md)
 for review, and [host compatibility](references/host-compatibility.md) for host limits.
+Claude Code can optionally save successful StarGlass tool events locally when the
+case directory contains the explicitly authorized opt-in marker described in the
+bundle guide. Create that marker only after the user authorizes case-local
+storage. ChatGPT and Codex use the host's actual file/chat capabilities.
 
 ## Work the question through to a defensible answer
 
 1. Frame the question, requested figures, entity names and stable identifiers,
    time window, rival hypotheses, and a question-derived coverage plan. Ask only
    for a missing decision that materially changes the inquiry. Keep that case
-   frame available in every synthesis, entity judgment, and reviewer brief.
+   frame available in every synthesis, entity judgment, and reviewer brief. Before
+   acquisition, save the frame, source manifest, and coverage log. Define an
+   acceptance row for every part of the original question.
 2. Inspect the host's actual StarGlass tool schemas, then call `sources_list({})`.
    Record available adapters, credentials, limits, and version/capability gaps.
    Use only exposed arguments and read-only consent. A host with only the older
@@ -29,7 +35,9 @@ for review, and [host compatibility](references/host-compatibility.md) for host 
    Search, fetch claim-critical records and context, resolve identity and dates,
    then update the evidence/claim ledger. Paginate search and passage results to
    the completeness needed by the question. A small result limit is a page size,
-   not a research stopping rule. Keep acquisition and coverage failures visible.
+   not a research stopping rule. After each purposeful batch, save receipts and
+   update the manifest, coverage log, acceptance matrix, and claim ledger before
+   continuing. Keep acquisition and coverage failures visible.
 4. Reassess the competing explanations and gaps after each batch. Search aliases,
    counterevidence, related entities, and missing periods where relevant. Use
    authorized host search and supplied/local files for audits, PDFs, tax returns,
@@ -50,6 +58,10 @@ for review, and [host compatibility](references/host-compatibility.md) for host 
    or downgrade unresolved claims. If checks are unavailable, disclose that and
    withhold the confirmed label. Deliver the calibrated report with citations,
    review method, completed coverage, blocked gaps, and next decisive evidence.
+   Synchronize the final claim ledger and report. Each original-question acceptance
+   row must be answered, partial, or unanswered with supporting evidence or a
+   concrete gap. A market narrative needs an observed, dated source; without one
+   the requested narrative remains unanswered.
 
 ## Boundaries
 
