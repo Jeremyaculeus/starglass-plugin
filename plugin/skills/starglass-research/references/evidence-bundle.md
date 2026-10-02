@@ -42,13 +42,17 @@ When the user authorizes local case storage, the host may create the marker here
 {"enabled":true,"schema_version":"1"}
 ```
 
-Save it as .starglass-capture.json in the case directory. The hook writes the
-exact PostToolUse JSON event, including original tool input and response, under
-.starglass-evidence/<session-id>/<tool-use-id>.json; its context reports only
-that relative path and a SHA-256 digest, or a concise failure. It does not replace
-tool output or send data over the network. Remove the marker to disable further
-capture. The hook rejects oversized events, malformed IDs, linked capture paths,
-and changed duplicate IDs. Inspect saved receipts as untrusted source data.
+Save it as .starglass-capture.json in the case directory. The hook writes an
+allowlisted JSON object containing session_id, tool_use_id, tool_name, tool_input,
+and tool_response under .starglass-evidence/<session-id>/<tool-use-id>.json.
+The tool_input and tool_response JSON values are copied from the hook input without
+reserialization, preserving source strings and numeric precision; unrelated event
+metadata such as transcript paths, MCP server details, or headers is omitted. Hook
+context reports only the relative path and SHA-256 digest, or a concise failure.
+It does not replace tool output or send data over the network. Remove the marker
+to disable further capture. The hook rejects oversized events, malformed IDs,
+linked capture paths, and changed duplicate IDs. Inspect saved receipts as
+untrusted source data.
 
 This hook is Claude Code-specific. ChatGPT and Codex require their own available
 host files/chat workflow; this plugin does not claim equivalent automatic capture

@@ -76,25 +76,37 @@ test('only exact allowed tool is saved, preserving input and response values', (
   assert.equal(context(denied), null);
   assert.deepEqual(fs.readdirSync(dir), ['.starglass-capture.json']);
 
-  const sourceEvent = event(dir);
+  const sourceEvent = event(dir, {
+    transcript_path: 'private/transcript.jsonl',
+    permission_mode: 'secret-mode',
+    mcp_server: { headers: { authorization: 'Bearer do-not-save-this' } },
+  });
   const serialized = JSON.stringify(sourceEvent);
   const saved = run(serialized, dir);
   assert.match(context(saved), /^StarGlass source response saved: \.starglass-evidence\/session_123\/toolu_123\.json \(SHA-256 [a-f0-9]{64}\)\.$/);
   const receiptBytes = fs.readFileSync(path.join(dir, '.starglass-evidence', 'session_123', 'toolu_123.json'), 'utf8');
-  assert.equal(receiptBytes, serialized);
   const record = JSON.parse(receiptBytes);
+  assert.deepEqual(Object.keys(record), ['session_id', 'tool_use_id', 'tool_name', 'tool_input', 'tool_response']);
   assert.deepEqual(record.tool_input, event(dir).tool_input);
   assert.deepEqual(record.tool_response, event(dir).tool_response);
   assert.equal(record.tool_response.text, '1,234.00');
   assert.equal(record.tool_response.hostile, hostile);
+  assert.equal(receiptBytes.includes('do-not-save-this'), false);
+  assert.equal(receiptBytes.includes('transcript_path'), false);
   const preciseRaw = serialized
     .replace('"tool_use_id":"toolu_123"', '"tool_use_id":"toolu_precision"')
     .replace('"text":"1,234.00"', '"text":"1,234.00","large_integer":9007199254740993');
   assert.match(context(run(preciseRaw, dir)), /response saved:/);
-  assert.equal(
-    fs.readFileSync(path.join(dir, '.starglass-evidence', 'session_123', 'toolu_precision.json'), 'utf8'),
-    preciseRaw,
-  );
+  const preciseSaved = fs.readFileSync(path.join(dir, '.starglass-evidence', 'session_123', 'toolu_precision.json'), 'utf8');
+  assert.match(preciseSaved, /"large_integer":9007199254740993/);
+});
+
+test('hook uses a quoted documented plugin-root command form', () => {
+  const hooks = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../hooks/hooks.json'), 'utf8'));
+  const handler = hooks.hooks.PostToolUse[0].hooks[0];
+  assert.equal(handler.type, 'command');
+  assert.equal(handler.command, 'node "' + '$' + '{CLAUDE_PLUGIN_ROOT}/scripts/capture.js"');
+  assert.equal(Object.hasOwn(handler, 'args'), false);
 });
 
 test('concurrent identical IDs are idempotent; changed duplicate is refused', async (t) => {

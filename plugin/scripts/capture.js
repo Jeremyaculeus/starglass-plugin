@@ -79,6 +79,59 @@ function result(context) {
   });
 }
 
+function rawTopLevelField(raw, wanted) {
+  let index = 0;
+  const skipSpace = () => {
+    while (/\s/.test(raw[index] || '')) index += 1;
+  };
+  skipSpace();
+  if (raw[index++] !== '{') throw new Error('invalid event object');
+  let found;
+  while (index < raw.length) {
+    skipSpace();
+    if (raw[index] === '}') break;
+    if (raw[index] !== '"') throw new Error('invalid event key');
+    const keyStart = index++;
+    let escaped = false;
+    while (index < raw.length) {
+      const character = raw[index++];
+      if (escaped) escaped = false;
+      else if (character === '\\') escaped = true;
+      else if (character === '"') break;
+    }
+    const key = JSON.parse(raw.slice(keyStart, index));
+    skipSpace();
+    if (raw[index++] !== ':') throw new Error('invalid event field');
+    skipSpace();
+    const valueStart = index;
+    const stack = [];
+    let inString = false;
+    escaped = false;
+    while (index < raw.length) {
+      const character = raw[index];
+      if (inString) {
+        if (escaped) escaped = false;
+        else if (character === '\\') escaped = true;
+        else if (character === '"') inString = false;
+      } else if (character === '"') inString = true;
+      else if (character === '{' || character === '[') stack.push(character);
+      else if (character === '}' || character === ']') {
+        if (stack.length) {
+          stack.pop();
+          if (!stack.length) { index += 1; break; }
+        } else break;
+      } else if (character === ',' && !stack.length) break;
+      index += 1;
+    }
+    if (key === wanted) found = raw.slice(valueStart, index);
+    skipSpace();
+    if (raw[index] === ',') index += 1;
+    else if (raw[index] !== '}') throw new Error('invalid event delimiter');
+  }
+  if (found === undefined) throw new Error('missing event payload');
+  return found;
+}
+
 function main(raw) {
   if (Buffer.byteLength(raw, 'utf8') > MAX_EVENT_BYTES) return { active: true, output: result('StarGlass local capture failed: event exceeded the 5 MiB safety limit.') };
   let event;
@@ -120,9 +173,15 @@ function main(raw) {
     const directory = ensureDirectoryTree(root, ['.starglass-evidence', event.session_id]);
     const relativePath = path.posix.join('.starglass-evidence', event.session_id, event.tool_use_id + '.json');
     const target = path.join(directory, event.tool_use_id + '.json');
-    // Retain the exact hook JSON bytes so numeric precision, string contents,
-    // response fields, and source formatting are not changed by reserialization.
-    const bytes = Buffer.from(raw, 'utf8');
+    // Keep only the declared receipt fields. Raw extraction preserves the JSON
+    // representation of tool payloads without persisting other hook metadata or
+    // changing large numeric values through JavaScript number parsing.
+    const selected = '{"session_id":' + JSON.stringify(event.session_id) +
+      ',"tool_use_id":' + JSON.stringify(event.tool_use_id) +
+      ',"tool_name":' + JSON.stringify(event.tool_name) +
+      ',"tool_input":' + rawTopLevelField(raw, 'tool_input') +
+      ',"tool_response":' + rawTopLevelField(raw, 'tool_response') + '}';
+    const bytes = Buffer.from(selected, 'utf8');
     if (bytes.byteLength > MAX_EVENT_BYTES) throw new Error('source payload exceeded the 5 MiB safety limit');
     const status = saveExclusive(target, bytes);
     const hash = crypto.createHash('sha256').update(bytes).digest('hex');
