@@ -28,7 +28,10 @@ OpenAI plugin skills combine instructions and optional resources with an MCP
 server's tools. Installing this Claude marketplace repository or making a custom
 MCP connection does not prove that ChatGPT loaded this skill and its resources.
 Confirm what the current host actually exposes. When the skill is unavailable,
-the host can follow the [public workflow](../../../../docs/RESEARCH-WORKFLOW.md)
+the upgraded server advertises the core workflow through MCP initialization and
+the `research_protocol` returned by `sources_list`. Read that live protocol; its
+presence does not prove the host followed it. The host can also follow the
+[public workflow](../../../../docs/RESEARCH-WORKFLOW.md)
 and supplied templates as instructions, subject to its tools and policies.
 
 Do not promise native subagents, filesystem access, persistent artifact storage,

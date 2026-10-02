@@ -6,6 +6,11 @@ and optional `limit` (1–10, default 5). A limit is a page size. New schemas ex
 optional `mode`, strict `filters`, and opaque `cursor`; old hosts may lack them.
 Do not send unsupported fields or generate a cursor.
 
+The upgraded `sources_list` also returns `research_protocol`: the core host-led
+case framing, acquisition, review, mechanical checking and continuity workflow.
+This guidance is available even without an installed client skill; verify its
+presence in the current connection and do not claim execution from discovery alone.
+
 ## Question-driven search modes
 
 | Source | Mode | Exposed filters | Important scope |
