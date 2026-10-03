@@ -6,7 +6,7 @@
 
 The screenshots show a search result retaining source=nppes and record_id=1881018208, the CMS canonical URL and bounded receipt, the subsequent revocation test's HTTP 403 refusal, and the restored ChatGPT/Claude Code connections. Source files were preserved unchanged; the video crops host chrome, profile/sidebar and unrelated content. Private research cases, credentials, callbacks and logs are excluded.
 
-Configuration is not provider health. Registry registration is not licensure. A receipt is not proof that every source claim is true. Recovery is distinct from automatic token renewal, which was still unverified when this video was prepared. Access remains an operator pilot; installing the client does not grant service access. No directory application or approval is represented.
+Configuration is not provider health. Registry registration is not licensure. A receipt is not proof that every source claim is true. Recovery is distinct from automatic token renewal, which was still unverified when this video was prepared. These dated screenshots show the operator pilot that existed at capture time; they do not document the current self-serve trial or establish that a newly signed-up trial account was tested. No directory application or approval is represented.
 
 The video does not replace dedicated reviewer access, the applicable submission cases, operational privacy review or actual vendor attestations. Review/publication status must be established through the vendor's real submission workflow.
 

@@ -1,9 +1,11 @@
 {
   "name": "starglass-research",
-  "version": "0.2.2",
-  "description": "Host-led research, skeptical review and mechanical evidence checks across official records.",
+  "version": "0.2.3",
+  "description": "Host-led research across supported official records with source citations and mechanical evidence checks.",
   "author": {
-    "name": "Aculeus"
+    "name": "Aculeus, Inc.",
+    "email": "jeremy@aculeus.ai",
+    "url": "https://aculeus.ai"
   },
   "defaultEnabled": false
 }
