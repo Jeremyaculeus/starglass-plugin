@@ -55,6 +55,19 @@ user files outside the adapters, use available authorized host tools and retain
 their actual provenance. Disclose missing text, OCR errors, or unreadable pages.
 Never attach an invented StarGlass receipt to those records.
 
+## Continue an interrupted investigation
+
+Keep a short continuation note with completed questions, unresolved claims,
+review issues, and the next action alongside the evidence bundle. If the host
+reaches a context limit, start a fresh conversation from that same case's saved
+frame, note, and relevant evidence files. The host should read bounded sections
+and reuse successful acquisitions while preserving the original scope, dates,
+source versions, and gaps. The [recovery procedure](../plugin/skills/starglass-research/references/research-loop.md#continue-after-a-context-or-session-limit)
+keeps exact evidence available without replaying the entire conversation.
+Wait for a subscription allowance to reset before continuing; StarGlass does
+not bypass host limits. If the files are unavailable, report the missing
+continuity and any affected conclusions.
+
 ## Availability and limits
 
 Inspect actual tool schemas and call `sources_list`. Older hosts may still expose

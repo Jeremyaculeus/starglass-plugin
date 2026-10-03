@@ -54,6 +54,28 @@ decide which gap the next batch will close. Parallel independent read-only calls
 are useful if the host supports them and shared limits allow them. Sequence calls
 that depend on a returned identifier or cursor.
 
+### Continue after a context or session limit
+
+At each batch, save a compact continuation note in the authorized case bundle:
+completed and blocked question slots, unresolved claims and review issues, the
+exact next action, and pointers to the frame, source manifest, claim/coverage
+ledgers, captured passages, and review. Retain the original question, entity and
+period decisions, acquisition constraints, and each unfinished query's filters,
+cursor or passage range. A checkpoint is a navigation aid, not source evidence.
+
+If the host can no longer use its current context, continue in a fresh host
+context from that same case's saved artifacts. Read the complete case frame and
+continuation note first, then bounded file ranges or locally parsed ledger rows
+for the active question. Reopen exact source passages for claims and review;
+do not replay the full transcript or dump a large ledger into context. Reuse
+successful acquisitions and unchanged checks; acquire only genuinely missing
+evidence within the original scope and allowance. Preserve source hashes,
+retrieval dates, representation changes and coverage warnings. Disclose this as
+a continuation, not an independent blind rerun. A subscription limit requires
+waiting for its actual reset; do not switch accounts or use a paid API fallback.
+If saved artifacts are unavailable, identify that loss and withhold conclusions
+that cannot be reconstructed rather than inventing continuity.
+
 Follow opaque cursors exactly. Do not generate cursors or assume page exhaustion
 because a page is short. Preserve provider coverage/truncation warnings and the
 actual end condition. For fetched passages, keep the actual one-based range and
