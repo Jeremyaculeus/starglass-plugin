@@ -1,9 +1,20 @@
 {
   "name": "starglass-research",
-  "version": "0.2.2",
-  "description": "Host-led research, skeptical review and mechanical evidence checks across official records.",
+  "version": "0.2.3",
+  "description": "Host-led research across supported official records with source citations and mechanical evidence checks.",
+  "displayName": "StarGlass Research",
+  "homepage": "https://aculeus.ai/plugins",
+  "repository": "https://github.com/Jeremyaculeus/starglass-plugin",
+  "keywords": ["research", "citations", "public-records", "primary-sources", "SEC", "government-contracts", "grants", "NPPES"],
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://aculeus.ai/docs/plugins",
+  "supportUrl": "https://aculeus.ai/talk-to-us?product=starglass",
+  "privacyPolicyUrl": "https://aculeus.ai/privacy",
+  "termsOfServiceUrl": "https://aculeus.ai/terms",
   "author": {
-    "name": "Aculeus"
+    "name": "Aculeus, Inc.",
+    "email": "jeremy@aculeus.ai",
+    "url": "https://aculeus.ai"
   },
   "defaultEnabled": false
 }

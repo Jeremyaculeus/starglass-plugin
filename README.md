@@ -1,66 +1,56 @@
 # StarGlass Research
 
-StarGlass connects selected official public-record APIs to your own Claude Code or ChatGPT research session. Your host account does the investigation, reasoning, synthesis, and skeptical review. StarGlass supplies read-only discovery, bounded source passages with canonical URLs, retrieval dates, line locators and integrity hashes, and mechanical evidence checking when exposed by your connection.
+StarGlass connects your AI host to selected official public-record sources. Claude Code, ChatGPT, and Codex supply research reasoning and keep the conversation; StarGlass provides read-only source discovery, bounded passages with canonical URLs, retrieval dates, line locators and integrity hashes, plus mechanical checks for supplied evidence.
 
-This repository contains the client workflow and Claude Code marketplace plugin. The hosted backend and private research records are not included. This is an operator pilot; installing the client does not automatically grant service access or imply approval by a vendor directory.
+## Start a trial
 
-## Install in Claude Code
+Create a Starglass account at [aculeus.ai/start](https://aculeus.ai/start), verify your email, then activate the cardless 30-day trial at [your StarGlass account](https://aculeus.ai/account/starglass). Set up a supported host at [aculeus.ai/connect](https://aculeus.ai/connect). Installing a client does not create an account or activate a trial.
 
-Use your existing Claude Code subscription login, then run:
+After the trial, you may explicitly choose a subscription for **USD 49 per user per month**. The trial does not convert automatically. Active accounts include 1,000 MCP source operations per person per UTC calendar month. Website Quick Answer has a separate USD 5 provider-cost allowance for the whole trial and for each paid service month. Aculeus absorbs any provider cost from a final Quick Answer that exceeds its allowance; customers have no overage charge. MCP research uses your AI host and does not call a proprietary LLM or Parallel. Quick Answer is available on the website only. Hosted Deep Research, Case creation and Aculeus shared workspaces are separate. Your AI host subscription is also separate.
+
+## Connect your host
+
+### Codex
+
+Codex OAuth sign-in, source search and fetch were tested with a fresh free-trial account on October 4, 2026. This is connection evidence, not a claim of research-quality parity or automatic token renewal.
+
+```sh
+codex mcp add starglass --url https://aculeus.ai/api/mcp
+codex mcp login starglass --oauth-client-registration cimd --scopes profile,offline_access,plugin-research:read
+npx skills add Jeremyaculeus/starglass-plugin --skill starglass-research --agent codex
+```
+
+The first two commands register and authenticate the MCP server; the `npx` command installs the research workflow skill. Node.js/npm are required for `npx`. The host CLI must already be installed. Start a new Codex session after installing the skill. The skill does not connect the server or grant account access.
+
+### Claude Code
+
+The plugin bundles the MCP connection and research skill. Sign in with your StarGlass account when prompted:
 
 ```sh
 claude plugin marketplace add Jeremyaculeus/starglass-plugin
 claude plugin install starglass-research@starglass --scope user
 claude plugin enable starglass-research@starglass --scope user
-```
-
-Start a fresh Claude Code session. Authenticate the bundled connection:
-
-```sh
 claude mcp login plugin:starglass-research:starglass-research
 ```
 
-Sign in with the Aculeus account enabled for the pilot and consent to `plugin-research:read`. The native client may also request `offline_access` for renewal. No API key or hosted research workspace is required. If you previously added the same endpoint manually, that entry takes precedence over a plugin entry; choose one installation method to avoid testing the wrong connection.
+The native Claude source workflow was recorded on October 2, 2026. No new Claude test is claimed here.
 
-## Research workflow
+### ChatGPT
 
-The skill guides the host through a case frame, purposeful multi-source acquisition, iterative gap closure, evidence and claim ledgers, synthesis from inspected source context, skeptical review, mechanical checks, and repair before a calibrated report. Your host's reasoning and agent tokens are intended for this work. The service does not call model APIs or Parallel.
+Custom MCP app availability depends on your plan and workspace settings. In ChatGPT, create a custom app using OAuth and this server URL: `https://aculeus.ai/api/mcp`. Sign in with your StarGlass account, approve read-only access, then select StarGlass in a new chat. The recorded personal Pro account completed sign-in, source discovery, search and fetch on October 2, 2026; this is historical evidence and does not guarantee availability for every account or imply a directory listing.
 
-Use the [research workflow](docs/RESEARCH-WORKFLOW.md) for a research request and the [portable evidence bundle guide](plugin/skills/starglass-research/references/evidence-bundle.md) for reusable templates. The bundle belongs in your authorized host workspace or chat; StarGlass does not require a hosted Case or save a research archive. Authorized host search and supplied documents can fill gaps such as audits, tax returns, PDFs and state records, with separate provenance.
+For current steps and other clients, see the [connection guide](https://aculeus.ai/connect). Support: [jeremy@aculeus.ai](mailto:jeremy@aculeus.ai). Read the [privacy policy](https://aculeus.ai/privacy).
 
-## Test the connection
+## Research workflow and coverage
 
-Ask Claude to use the `starglass-research` skill and:
+The native MCP toolchain has four tools: `sources_list`, `source_search`, `source_fetch` and `evidence_check`. The host does the investigation, synthesis and review. Follow the [research workflow](docs/RESEARCH-WORKFLOW.md), [portable evidence bundle guide](plugin/skills/starglass-research/references/evidence-bundle.md) and [host compatibility guide](plugin/skills/starglass-research/references/host-compatibility.md). Host file access, review features and tool availability depend on the app and session. Check the live tool schemas before using new modes or filters.
 
-1. List the source catalogue and its limits.
-2. Search NPPES for Mayo Clinic organizations, using a small first page for this connection test.
-3. Fetch a record using its actual returned identifier, with lines 1–30.
-4. Report the canonical URL, publisher, retrieval date, returned range and receipt hashes. State truncation and what the passage supports.
+The seven supported source families are USAspending federal awards, SEC filings, FEC committee registrations, identified congressional bills, GovInfo publications, lobbying disclosures and NPPES health-provider organizations. Coverage, credentials and availability are source-specific and shown by the catalogue. This is not a complete funding ledger, licensure check, tax-return or audit extractor, or universal document crawler. Authorized host searches and supplied files can fill gaps, with separate provenance.
 
-Successful configuration is not evidence that every provider is healthy. Do not invent identifiers or treat a failed/empty search as proof that records do not exist.
+An evidence check evaluates supplied passages, hashes and calculations. It does not certify that a source is true or that coverage is complete. Empty or failed searches do not prove records are absent. MCP requests do not route to Parallel or a proprietary LLM and do not store your research files or final answers in the research harness. Account and aggregate quota bookkeeping remain subject to the [privacy policy](https://aculeus.ai/privacy).
 
-This connection test is not a complete research case. For substantive questions, follow relevant search pages and fetched passages, test rival explanations, inspect all material evidence, and report blocked coverage. Inspect your live tool schema before using new modes, filters, pagination or `evidence_check`; an older three-tool connection cannot supply those capabilities until refreshed. Withhold confirmed figure labels when required checks are unavailable.
+## Historical native evidence
 
-## ChatGPT
+[Watch the archived 79-second evidence walkthrough](https://raw.githubusercontent.com/Jeremyaculeus/starglass-plugin/main/docs/StarGlass-native-evidence-2026-10-02-r2.mp4) · [Captions](docs/StarGlass-native-evidence-2026-10-02-r2.srt) · [Scope and provenance](docs/README.md)
 
-The pilot supports a custom OAuth MCP connection at `https://aculeus.ai/api/mcp`, with the same read-only tools. Connect it using your pilot-enabled Aculeus account. Your ChatGPT plan and workspace determine whether custom connections are available. On October 2, 2026, a personal ChatGPT Pro account completed native sign-in, catalogue discovery, search and fetch using the identifier returned by that search. The installed Claude Code plugin completed the same source workflow. No public directory listing is claimed. A custom MCP connection does not prove that ChatGPT loaded this repository's skill or that agent mode can use the connection. Follow the [host compatibility guide](plugin/skills/starglass-research/references/host-compatibility.md) and disclose unavailable file, review, or checking capabilities.
-
-## Coverage and cost boundaries
-
-Acquisition tools are `sources_list`, `source_search` and `source_fetch`; `evidence_check` adds mechanical checks when your live schema exposes it. Adapter coverage includes federal prime contracts/grants (USAspending), SEC filing discovery, FEC committee registrations, explicitly identified congressional bills, GovInfo, lobbying disclosures and NPPES organizations. Consult the actual catalogue for credentials, availability, modes and limits; catalogue availability can change. Confirmed figures require both a successful mechanical check and host judgment that the evidence supports the exact claim. A consistency result does not certify real-world truth.
-
-This is not a complete funding ledger, licensure check or universal document crawler. Tax returns, organization-hosted audits, board documents and state records may require authorized host search or supplied documents. Keep their provenance separate from StarGlass receipts. The service does not call Parallel or model APIs, silently acquire paid records, or save your queries, documents or final answers in its research harness. Your host controls its conversation history. Account/connection and aggregate quota bookkeeping remain subject to the service privacy policy and provider operations.
-
-The pilot allows 1,000 source operations per enabled person per month, 60 MCP requests per minute and no automatic paid overage. Search/fetch failures and repeats consume operations; the catalogue does not. Limits are shared across connected hosts. A receipt's hashes identify returned representations; they do not certify that a source's claims are true.
-
-## Connections and support
-
-Manage or revoke connections at [StarGlass account access](https://aculeus.ai/plugin/account). Revocation blocks new service requests; disconnect in your host to clear its stored credentials. A revoked pilot connection requires operator restoration; the host may also require fresh sign-in. Revocation and recovery were tested in both hosts. Automatic token renewal still awaits verification after natural expiry. Neither revocation nor service bookkeeping removes a host's saved conversations.
-
-[Product](https://aculeus.ai/plugins) · [Support](https://aculeus.ai/talk-to-us) · [Privacy](https://aculeus.ai/privacy) · [Terms](https://aculeus.ai/terms)
-
-## Recorded native evidence
-
-[Watch the 79-second evidence walkthrough](https://raw.githubusercontent.com/Jeremyaculeus/starglass-plugin/main/docs/StarGlass-native-evidence-2026-10-02-r2.mp4) · [Captions](docs/StarGlass-native-evidence-2026-10-02-r2.srt) · [Scope and provenance](docs/README.md)
-
-The walkthrough uses dated screenshots of actual October 2, 2026 operator results: returned NPPES identifier, bounded citation receipt, revocation refusal and restored host connections. It is a captioned, silent evidence sequence, not a continuous live recording, dedicated reviewer run or directory approval. It contains public/synthetic material only. Automatic token renewal remains pending verification.
+The walkthrough preserves dated October 2, 2026 operator results. It predates these self-serve trial instructions and is not a fresh trial test, continuous live recording, dedicated reviewer run or directory approval. It uses public/synthetic material. Automatic token renewal remains unverified.

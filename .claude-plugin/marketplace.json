@@ -2,13 +2,21 @@
   "name": "starglass",
   "description": "StarGlass host-led research workflow and read-only evidence tools.",
   "owner": {
-    "name": "Aculeus"
+    "name": "Aculeus, Inc.",
+    "email": "jeremy@aculeus.ai",
+    "url": "https://aculeus.ai"
   },
   "plugins": [
     {
       "name": "starglass-research",
       "source": "./plugin",
-      "description": "Citation-backed research across selected official public records."
+      "description": "Research supported official public records with citations and bounded evidence checks.",
+      "version": "0.2.3",
+      "author": {
+        "name": "Aculeus, Inc.",
+        "email": "jeremy@aculeus.ai",
+        "url": "https://aculeus.ai"
+      }
     }
   ]
 }
