@@ -12,11 +12,11 @@ After the trial, you may explicitly choose a subscription for **USD 49 per user 
 
 ### Codex
 
-The documented commands below are copied from the current connection guide. **Codex OAuth sign-in and a source workflow have not been verified.**
+Codex OAuth sign-in, source search and fetch were tested with a fresh free-trial account on October 4, 2026. This is connection evidence, not a claim of research-quality parity or automatic token renewal.
 
 ```sh
 codex mcp add starglass --url https://aculeus.ai/api/mcp
-codex mcp login starglass --oauth-client-registration cimd
+codex mcp login starglass --oauth-client-registration cimd --scopes profile,offline_access,plugin-research:read
 npx skills add Jeremyaculeus/starglass-plugin --skill starglass-research --agent codex
 ```
 
