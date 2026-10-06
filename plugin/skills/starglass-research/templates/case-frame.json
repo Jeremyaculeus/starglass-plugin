@@ -19,5 +19,20 @@
     "available_limits": {},
     "known_gaps": []
   },
-  "revision": 1
+  "revision": 1,
+  "intake": {
+    "original_request": "",
+    "hardened_question": "",
+    "context_refs": [],
+    "decision_answers": [],
+    "assumptions": [],
+    "researchable_unknowns": [],
+    "optional_preferences": [],
+    "plan_decision": {
+      "status": "pending",
+      "approved_revision": null,
+      "user_response_ref": null,
+      "user_response_text": null
+    }
+  }
 }

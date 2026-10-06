@@ -11,6 +11,14 @@ this work. StarGlass supplies read-only records and mechanical checks; it does n
 call model APIs or Parallel. Do not reduce research quality to save host tokens.
 
 Read [the research loop](references/research-loop.md) before substantive research.
+Read [adaptive intake](references/research-intake.md) before long or broad
+multi-source research. Use answered context first, ask short rounds for material
+user decisions, keep researchable unknowns in a bounded resolution phase, and
+harden a neutral question without inventing facts. Show a compact editable Case
+Plan and wait for an actual user decision before long acquisition. "Go ahead"
+ends optional intake; it approves a plan only as a reply to that displayed plan
+and never waives privacy or access requirements. Simple bounded lookups need no
+long-research ceremony. Resume an approved saved frame after context resets.
 Use [the bundle guide](references/evidence-bundle.md) and its linked templates when
 keeping a portable host-owned record. Load [the review brief](references/skeptical-review.md)
 for review, and [host compatibility](references/host-compatibility.md) for host limits.
@@ -21,13 +29,20 @@ storage. ChatGPT and Codex use the host's actual file/chat capabilities.
 
 ## Work the question through to a defensible answer
 
-1. Frame the question, requested figures, entity names and stable identifiers,
-   time window, rival hypotheses, and a question-derived coverage plan. Ask only
-   for a missing decision that materially changes the inquiry. Keep that case
-   frame available in every synthesis, entity judgment, and reviewer brief. Before
-   acquisition, save the frame, source manifest, and coverage log. Define an
-   acceptance row for every part of the original question.
-2. Inspect the host's actual StarGlass tool schemas, then call `sources_list({})`.
+1. Read existing answers and saved decisions, then separate missing user
+   decisions from researchable evidence/identity gaps and optional preferences.
+   Accept "I don't know", label delegated assumptions, and clarify material
+   contradictions. Harden the original question neutrally while preserving every
+   requested part. Frame figures, entities, identifiers, dates, rival hypotheses,
+   coverage, capabilities, resources, stopping conditions and review. Inspect the
+   exposed schemas and `sources_list` catalogue before finalizing the plan;
+   catalogue discovery is not source acquisition. For long
+   research, show the Case Plan and request a proceed/revise/narrow decision.
+   Keep the approved revision and actual user decision in the host-owned frame.
+   Before acquisition, save it with the source manifest and coverage log. Define
+   an acceptance row for every part of the original question.
+2. Preserve the actual StarGlass tool schemas and `sources_list({})` catalogue
+   used for the plan, or inspect them now for a simple bounded lookup.
    Record available adapters, credentials, limits, and version/capability gaps.
    Use only exposed arguments and read-only consent. A host with only the older
    three tools cannot run `evidence_check` or new search modes until refreshed.

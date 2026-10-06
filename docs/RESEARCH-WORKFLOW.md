@@ -9,13 +9,22 @@ goals.
 
 Use the [starglass-research skill](../plugin/skills/starglass-research/SKILL.md)
 when your host loads it. A custom MCP connection alone does not prove that a host
-loaded the skill. You can also give the host this workflow and its linked resources.
+loaded the skill. MCP server 0.3.5 advertises protocol 0.2.5 through initialization
+instructions and `sources_list`, including the same adaptive intake policy for
+skill-free hosts. Client package 0.2.4 is a separate version. Installing it does
+not prove that the server is updated or that a host follows the policy. You can
+also give the host this workflow and its linked resources.
 
 ## A research request
 
 > Use StarGlass and your available authorized host tools to investigate this
-> question. Frame the subject, stable entity identifiers, period, requested
-> figures, rival explanations, and source coverage before searching. Acquire and
+> question. Read what I have already answered. Before long research, ask brief
+> follow-up rounds for material missing decisions, accept "I don't know", and
+> separate researchable unknowns from optional preferences. Harden my question
+> neutrally, preserving every requested part. Show an editable Case Plan covering
+> entities, dates, measures, sources, counterevidence, acceptance criteria,
+> resources, stopping conditions and review, then ask me whether to proceed.
+> After my decision, acquire and
 > inspect relevant records iteratively; paginate to the completeness required by
 > the question. Keep a host-owned evidence bundle, challenge the draft with a
 > native subagent if available or a disclosed same-model separate pass, and run
@@ -24,6 +33,14 @@ loaded the skill. You can also give the host this workflow and its linked resour
 
 Append your actual question, period, entities, and any authorized local documents.
 Do not send confidential search terms to upstream sources without authorization.
+
+See [adaptive intake and Case Plan](../plugin/skills/starglass-research/references/research-intake.md)
+for the conversation loop, bounded identity resolution, neutral prompt hardening
+and actual user start decision. A fully specified request needs no invented
+questions. "Go ahead" ends optional intake; approval applies only to a plan the
+user has seen and does not authorize private-data disclosure. Simple bounded
+lookups do not require long-research ceremony. Saved approved frames carry the
+answers and start decision across context resets.
 
 ## What the host should deliver
 

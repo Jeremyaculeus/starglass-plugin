@@ -11,7 +11,7 @@
       "name": "starglass-research",
       "source": "./plugin",
       "description": "Research supported official public records with citations and bounded evidence checks.",
-      "version": "0.2.3",
+      "version": "0.2.4",
       "author": {
         "name": "Aculeus, Inc.",
         "email": "jeremy@aculeus.ai",
