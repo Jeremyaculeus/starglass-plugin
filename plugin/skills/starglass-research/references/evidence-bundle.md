@@ -23,7 +23,7 @@ a supported export. State where the record exists; never invent a save/export.
 Do not commit research bundles into this public plugin repository.
 
 Frame the original question into explicit acceptance rows before acquisition.
-Save the frame, manifest, and coverage log before the first source call, then save
+Save the frame, manifest, and coverage log before the first acquisition call, then save
 each purposeful batch's receipts and ledger updates before continuing. The final
 acceptance matrix marks each requested part answered, partial, or unanswered and
 points to evidence or a concrete gap. A market narrative remains unanswered
@@ -77,6 +77,12 @@ an actually supported export and state that location.
   acceptance rows `{slot, status, evidence_refs, gap}` for each part of the
   original question (`answered`, `partial`, or `unanswered`); and known
   constraints. Unknown identity or dates stay explicitly unresolved.
+  Its optional `intake` object retains the original request, neutral hardened
+  question, context references, actual decision answers, labeled assumptions,
+  unresolved researchable gaps, optional preferences and the approved plan
+  revision/user response. A status written by the assistant is not user approval.
+  Follow [adaptive intake](research-intake.md). Keep this host-only metadata local;
+  do not add it to the strict `evidence_check` schema.
 - [source-manifest.json](../templates/source-manifest.json): record catalogue and
   exposed schemas; each source's stable host ID, provenance kind (`starglass`,
   `host_web`, or `user_file`), actual source/record ID, URL/file reference,

@@ -6,6 +6,16 @@ can decide whether a passage answers the user's question.
 
 ## Frame before acquisition
 
+Before long or broad research, follow [adaptive intake](research-intake.md): read
+answered context, ask only material missing user decisions in short rounds,
+separate researchable gaps from preferences, and inspect actual schemas and the
+`sources_list` catalogue as non-acquisition discovery before finalizing the plan.
+Present a neutral hardened question with an editable Case Plan. For long research,
+`source_search` and `source_fetch` wait for the actual user start decision.
+Record its revision and response reference in the existing host-owned frame.
+Unknown identifiers call for a bounded resolution phase, not an endless grill or
+a guessed match. A simple bounded lookup uses a brief frame without heavy intake.
+
 Use the [case-frame template](../templates/case-frame.json). Record the actual
 question and requested slots: for example, funding by transaction date, a filing
 period, or a reported organizational role. Resolve these distinctions before
@@ -65,7 +75,9 @@ cursor or passage range. A checkpoint is a navigation aid, not source evidence.
 
 If the host can no longer use its current context, continue in a fresh host
 context from that same case's saved artifacts. Read the complete case frame and
-continuation note first, then bounded file ranges or locally parsed ledger rows
+continuation note first, including the approved plan revision, answered intake,
+assumptions and actual user decision. Do not re-ask those answers. Read bounded
+file ranges or locally parsed ledger rows
 for the active question. Reopen exact source passages for claims and review;
 do not replay the full transcript or dump a large ledger into context. Reuse
 successful acquisitions and unchanged checks; acquire only genuinely missing
