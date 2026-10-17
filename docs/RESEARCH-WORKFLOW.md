@@ -9,13 +9,47 @@ goals.
 
 Use the [starglass-research skill](../plugin/skills/starglass-research/SKILL.md)
 when your host loads it. A custom MCP connection alone does not prove that a host
-loaded the skill. MCP server 0.3.5 advertises protocol 0.2.5 through initialization
-instructions and `sources_list`, including the same adaptive intake policy for
-skill-free hosts. Client package 0.2.4 is a separate version. Installing it does
-not prove that the server is updated or that a host follows the policy. You can
-also give the host this workflow and its linked resources.
+loaded the skill. MCP server 0.3.5 and later advertise protocol 0.2.5 through
+initialization instructions and `sources_list`, including the same adaptive
+intake policy for skill-free hosts. Client package 0.3.0 is a separate version.
+Installing it does not prove that the server is updated or that a host follows
+the policy. You can also give the host this workflow and its linked resources.
+
+## Start an investigation
+
+Invoking StarGlass tells the host to start adaptive intake; you do not need to
+ask for "deep research" or paste a procedure.
+
+- **Claude Code:** `/starglass-research:investigate <question>`, or invoke the
+  skill with `/starglass-research:starglass-research <question>`. Claude may also
+  load the skill itself for a public-record research request. Pass a saved case
+  folder to the command to resume an approved case without repeating intake; the
+  host is instructed to confirm the next action with you before new acquisition.
+- **Codex:** `$starglass-research <question>` after installing the skill. If you
+  installed it before 0.3.0, run `npx skills update starglass-research` (or
+  re-run the `npx skills add` command), then start a new session.
+- **Other MCP clients:** the `investigate` MCP prompt ships with MCP server
+  0.3.6. It must be deployed to aculeus.ai before use; a client package release
+  does not deploy it. Until then, and in hosts that do not list MCP prompts, use
+  the request below.
+
+In the instructed first reply the host restates the question, inspects the tool
+schemas and `sources_list` catalogue, then either asks the single most
+consequential missing decision or shows the compact Case Plan and asks "Proceed
+with this plan, or change anything?" The instructions make source searches and
+fetches wait for your approval of the plan you have seen; a question or change
+returns to the plan. Invocation is not approval of a plan, permission for private
+data or permission for long acquisition. Only a request for one or two fields of
+one named record or identifier, or an explicit quick lookup that stays within one
+record or one source family, takes the bounded-lookup path; a quick request that
+needs multi-source or multi-page acquisition still gets the plan. These are
+instructions to the host; no native host test of this start flow is claimed yet.
+This is host-led research in your own AI host; hosted Aculeus Deep Research is a
+separate product and is not included in the USD 49 plan.
 
 ## A research request
+
+For hosts without the skill or the server prompt, paste this request:
 
 > Use StarGlass and your available authorized host tools to investigate this
 > question. Read what I have already answered. Before long research, ask brief
@@ -96,8 +130,9 @@ The host still decides whether the record concerns the right entity and answers
 the question.
 
 [Host compatibility](../plugin/skills/starglass-research/references/host-compatibility.md)
-describes current primary documentation and fallbacks. Claude Code native subagents
-can review in a separate context when available. ChatGPT tool access, agent mode,
+describes current primary documentation and fallbacks. In Claude Code, the
+plugin's `starglass-research:starglass-reviewer` subagent reviews in a separate
+context with the session's model; a separate context is not a different model. ChatGPT tool access, agent mode,
 custom MCP availability, skill loading, and file/delegation capabilities vary;
 this workflow does not promise capabilities absent from the current session.
 

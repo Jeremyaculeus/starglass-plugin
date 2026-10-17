@@ -6,12 +6,18 @@ account permissions, host version, and workspace policies govern each session.
 ## Claude Code
 
 The installed plugin packages this skill and an OAuth MCP connection. Claude Code
-supports native subagents with separate context and tool access. Use an available
-native research/review subagent after checking its permissions and access. Give it
-the complete case frame and evidence bundle explicitly; do not assume it inherited
-the conversation or skill. Keep the host's current model choices. A separate agent
-context is useful for challenge but is not proof of a different model or independent
-real-world investigation. Record the actual review method and model if visible.
+supports native subagents with separate context and tool access. The plugin
+bundles `starglass-research:starglass-reviewer`, which carries the
+[review brief](skeptical-review.md), inherits the session model and is limited to
+Read, Grep, Glob and the StarGlass `source_fetch` and `evidence_check` tools.
+It is told to fetch only records already in the case and to list each fetch for
+the host's source manifest; the tool allowlist itself cannot enforce that.
+Use it, or another available native review subagent, after checking its
+permissions and access. Give it the complete case frame and evidence bundle
+explicitly; do not assume it inherited the conversation or skill. Keep the
+host's current model choices. A separate agent context is useful for challenge
+but is not proof of a different model or independent real-world investigation.
+Record the actual review method and model if visible.
 
 MCP tool access can be restricted by host/subagent configuration. If the reviewer
 cannot access captured sources, supply the bundle through authorized host files

@@ -15,6 +15,10 @@ Present a neutral hardened question with an editable Case Plan. For long researc
 Record its revision and response reference in the existing host-owned frame.
 Unknown identifiers call for a bounded resolution phase, not an endless grill or
 a guessed match. A simple bounded lookup uses a brief frame without heavy intake.
+When the skill is invoked, follow its "Start here" procedure: intake is the
+default, and only a request for one or two fields of one named record or
+identifier, or an explicit quick lookup that stays within one record or one
+source family, takes the bounded path.
 
 Use the [case-frame template](../templates/case-frame.json). Record the actual
 question and requested slots: for example, funding by transaction date, a filing

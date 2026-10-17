@@ -27,6 +27,41 @@ with your StarGlass account. Follow the
 The server exposes `sources_list`, `source_search`, `source_fetch` and
 `evidence_check`. Check the live catalogue for source availability and limits.
 
+## Start an investigation
+
+Run `/starglass-research:investigate <question>`, or invoke the skill with
+`/starglass-research:starglass-research <question>`. Claude may also load the
+skill itself when you ask it to research a public-record question. In Codex,
+send `$starglass-research <question>` after installing the skill; if you
+installed it before 0.3.0, run `npx skills update starglass-research` (or re-run
+the `npx skills add` command), then start a new session. Other MCP clients can
+use the server's `investigate` prompt once MCP server 0.3.6, which ships it,
+is deployed to aculeus.ai; it is not available before that deployment.
+
+Invocation tells your AI host to start adaptive intake. The skill instructs the
+host to restate your question, check the StarGlass catalogue and ask the single
+most consequential missing decision (it accepts "I don't know"), then show an
+editable Case Plan and ask "Proceed with this plan, or change anything?" The
+instructions make source searches and fetches wait for your approval of the plan
+you have seen; a question or change returns to the plan. Invoking the skill is
+not plan approval, and neither invoking it nor approving a plan authorizes
+sending private data. One or two fields of one named record, or an explicit
+quick lookup that stays within one record or one source family, skip the plan
+loop; a quick request that needs multi-source or multi-page acquisition still
+gets the plan. Pass a saved case folder to the command to resume an approved
+case without repeating intake; the host is instructed to restate the saved scope
+and next action and ask you to confirm before new acquisition. These are
+instructions to your host; no native host test of this start flow is claimed
+yet. This is host-led research; hosted Aculeus Deep Research is a separate
+product and is not included in the USD 49 plan.
+
+The plugin starts enabled from version 0.3.0 unless you have already set it.
+The bundled `starglass-reviewer` subagent runs the skeptical review in a separate
+context with read-only file tools and StarGlass `source_fetch` and
+`evidence_check`. It inherits the session's model, so it is not a second model.
+Its `source_fetch` calls reopen records already in the case and count toward
+your monthly source operations.
+
 ## What runs and where data goes
 
 The host sends research tool inputs to the StarGlass MCP server, which retrieves

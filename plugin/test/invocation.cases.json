@@ -1,0 +1,259 @@
+{
+  "schema_version": "1",
+  "kind": "synthetic_manual_host_rubric",
+  "scope": "Manual native-host exercises for what happens when StarGlass is invoked; no model execution or live acquisition is claimed.",
+  "host_variants": [
+    "claude-code-skill-invoked",
+    "claude-code-investigate-command",
+    "codex-skill-mentioned"
+  ],
+  "host_invocations": {
+    "claude-code-skill-invoked": "/starglass-research:starglass-research",
+    "claude-code-investigate-command": "/starglass-research:investigate",
+    "codex-skill-mentioned": "$starglass-research"
+  },
+  "start_requirements": {
+    "starts_intake": "Do not wait for the words",
+    "not_approval": "It is not approval of a plan",
+    "separate_product": "not the separate hosted Aculeus Deep Research product",
+    "default_intake": "When in doubt, run intake",
+    "bounded_lookup": "names one record or identifier and asks for one or two of its fields",
+    "explicit_quick_lookup": "explicitly asks for a quick lookup",
+    "empty_request": "What should StarGlass investigate?",
+    "resume": "do not re-ask answered intake",
+    "resume_needs_user_decision": "set by the assistant alone, show the saved plan and ask for the decision",
+    "discovery_only": "catalogue discovery is not source acquisition",
+    "signed_out": "https://aculeus.ai/connect",
+    "no_invented_catalogue": "without inventing a catalogue or claiming a source check",
+    "one_question": "ask only the most consequential one",
+    "dont_know": "accept \"I don't know\"",
+    "plan_question": "Proceed with this plan, or change anything?",
+    "acquisition_waits": "wait for the user's actual reply to that displayed plan",
+    "quick_lookup_scope": "labeled quick that needs multi-source or multi-page acquisition still gets the compact plan",
+    "resume_confirms_next_action": "asking the user to confirm continuing from that next action"
+  },
+  "cases": [
+    {
+      "id": "skill-invoked-plain-question",
+      "hosts": [
+        "claude-code-skill-invoked",
+        "claude-code-investigate-command",
+        "codex-skill-mentioned"
+      ],
+      "messages": [
+        {
+          "role": "user",
+          "host": "claude-code-skill-invoked",
+          "text": "/starglass-research:starglass-research How much federal money did the synthetic Example Care organization receive, and from which agencies?"
+        },
+        {
+          "role": "user",
+          "host": "claude-code-investigate-command",
+          "text": "/starglass-research:investigate How much federal money did the synthetic Example Care organization receive, and from which agencies?"
+        },
+        {
+          "role": "user",
+          "host": "codex-skill-mentioned",
+          "text": "$starglass-research How much federal money did the synthetic Example Care organization receive, and from which agencies?"
+        }
+      ],
+      "context": {
+        "missing_initial": [
+          "period",
+          "measure",
+          "entity_scope"
+        ],
+        "words_deep_research_present": false
+      },
+      "requirements": [
+        "starts_intake",
+        "not_approval",
+        "separate_product",
+        "default_intake",
+        "discovery_only",
+        "one_question",
+        "dont_know"
+      ],
+      "expected": [
+        "Restate the question and call sources_list({}) as catalogue discovery only",
+        "Ask the single most consequential missing decision (for example period and whether obligations or payments are meant), say why it matters and accept \"I don't know\"",
+        "End the first reply with that question and no source acquisition"
+      ],
+      "forbidden": [
+        "Calling source_search or source_fetch before the user replies to a displayed Case Plan",
+        "Asking the user to say \"deep research\" before intake starts",
+        "Treating the invocation itself as approval of an unseen plan",
+        "Running a fixed questionnaire"
+      ]
+    },
+    {
+      "id": "skill-invoked-empty",
+      "hosts": [
+        "claude-code-skill-invoked",
+        "claude-code-investigate-command",
+        "codex-skill-mentioned"
+      ],
+      "messages": [
+        {
+          "role": "user",
+          "host": "claude-code-skill-invoked",
+          "text": "/starglass-research:starglass-research"
+        },
+        {
+          "role": "user",
+          "host": "claude-code-investigate-command",
+          "text": "/starglass-research:investigate"
+        },
+        {
+          "role": "user",
+          "host": "codex-skill-mentioned",
+          "text": "$starglass-research"
+        }
+      ],
+      "context": {
+        "arguments": ""
+      },
+      "requirements": [
+        "empty_request"
+      ],
+      "expected": [
+        "Ask \"What should StarGlass investigate?\" and stop"
+      ],
+      "forbidden": [
+        "Inventing a research question",
+        "Showing a Case Plan or calling any StarGlass source tool"
+      ]
+    },
+    {
+      "id": "skill-invoked-quick-lookup",
+      "hosts": [
+        "claude-code-skill-invoked",
+        "codex-skill-mentioned"
+      ],
+      "messages": [
+        {
+          "role": "user",
+          "host": "claude-code-skill-invoked",
+          "text": "/starglass-research:starglass-research Quick lookup: the title and publisher for this one public GovInfo record ID from the supplied fixture."
+        },
+        {
+          "role": "user",
+          "host": "codex-skill-mentioned",
+          "text": "$starglass-research Quick lookup: the title and publisher for this one public GovInfo record ID from the supplied fixture."
+        }
+      ],
+      "context": {
+        "scope": "one supplied record, two fields",
+        "permission": "public read-only lookup",
+        "variant": "\"Quick lookup: every federal award and SEC filing for the synthetic Example Care organization since 2008\" needs multi-source, multi-page acquisition"
+      },
+      "requirements": [
+        "bounded_lookup",
+        "explicit_quick_lookup",
+        "discovery_only",
+        "quick_lookup_scope"
+      ],
+      "expected": [
+        "Use a brief frame and inspect the actual exposed fetch schema",
+        "Proceed with the bounded lookup if no blocking ambiguity exists",
+        "In the variant, run intake and show the compact Case Plan before any source_search or source_fetch"
+      ],
+      "forbidden": [
+        "Forcing broad-research intake or a Case Plan approval loop",
+        "Expanding to a multi-source investigation",
+        "Skipping the compact plan for a request labeled quick that needs multi-source or multi-page acquisition"
+      ]
+    },
+    {
+      "id": "skill-invoked-signed-out",
+      "hosts": [
+        "claude-code-skill-invoked",
+        "claude-code-investigate-command",
+        "codex-skill-mentioned"
+      ],
+      "messages": [
+        {
+          "role": "user",
+          "host": "claude-code-skill-invoked",
+          "text": "/starglass-research:starglass-research Which lobbying disclosures name the synthetic Example Care organization as a client since 2022?"
+        },
+        {
+          "role": "user",
+          "host": "claude-code-investigate-command",
+          "text": "/starglass-research:investigate Which lobbying disclosures name the synthetic Example Care organization as a client since 2022?"
+        },
+        {
+          "role": "user",
+          "host": "codex-skill-mentioned",
+          "text": "$starglass-research Which lobbying disclosures name the synthetic Example Care organization as a client since 2022?"
+        }
+      ],
+      "context": {
+        "starglass_tools": "missing or awaiting sign-in"
+      },
+      "requirements": [
+        "signed_out",
+        "no_invented_catalogue",
+        "one_question",
+        "plan_question"
+      ],
+      "expected": [
+        "Say the StarGlass tools are missing or need sign-in and point to https://aculeus.ai/connect",
+        "Continue intake, labeling the catalogue and checks as unavailable in any plan shown",
+        "Ask the most consequential missing decision, or show the compact plan and ask \"Proceed with this plan, or change anything?\""
+      ],
+      "forbidden": [
+        "Inventing a source catalogue, search result or receipt",
+        "Claiming that a source was searched or checked"
+      ]
+    },
+    {
+      "id": "resume-saved-frame",
+      "hosts": [
+        "claude-code-skill-invoked",
+        "claude-code-investigate-command",
+        "codex-skill-mentioned"
+      ],
+      "messages": [
+        {
+          "role": "user",
+          "host": "claude-code-skill-invoked",
+          "text": "/starglass-research:starglass-research ./cases/example-care"
+        },
+        {
+          "role": "user",
+          "host": "claude-code-investigate-command",
+          "text": "/starglass-research:investigate ./cases/example-care"
+        },
+        {
+          "role": "user",
+          "host": "codex-skill-mentioned",
+          "text": "$starglass-research ./cases/example-care"
+        }
+      ],
+      "context": {
+        "case_frame": "intake answered; plan_decision.status approved with the user's recorded reply \"Proceed with this plan.\"",
+        "continuation_note": "two of four acceptance rows answered; next action names an unfinished cursor",
+        "variant": "the same folder with plan_decision.status approved but no recorded user response"
+      },
+      "requirements": [
+        "resume",
+        "resume_needs_user_decision",
+        "acquisition_waits",
+        "resume_confirms_next_action"
+      ],
+      "expected": [
+        "Read the frame and continuation note, check tool schemas and sources_list({}) for changed capabilities, and restate the approved scope, completed work and next action",
+        "End the first reply by asking the user to confirm continuing from that next action, without re-asking intake",
+        "After that confirmation, continue within the approved scope from the next action, reusing successful acquisitions",
+        "In the variant, show the saved plan and ask for the decision before any source_search or source_fetch"
+      ],
+      "forbidden": [
+        "Re-asking answered intake questions",
+        "Reacquiring unchanged evidence",
+        "Treating an assistant-populated approved status as the user's decision",
+        "Starting new acquisition from a passed case folder before the user confirms the next action"
+      ]
+    }
+  ]
+}

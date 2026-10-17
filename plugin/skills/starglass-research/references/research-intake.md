@@ -41,6 +41,20 @@ When the user says "go ahead" before seeing a plan, stop optional questions, sho
 the plan with assumptions, and request its start decision. A reply to a shown plan
 can approve it. Neither reply authorizes a new confidential-data destination.
 
+Invoking the skill, its `investigate` command or the server's `investigate`
+prompt starts this conversation; it is not approval of a plan. Treat such a
+request as long research unless it names one record or identifier and asks for
+one or two of its fields, or the user explicitly asks for a quick lookup that
+stays within one record or one source family; a request labeled quick that needs
+multi-source or multi-page acquisition still gets the compact plan. When in
+doubt, run intake. For new long research, the first reply ends with one decision
+question or the compact plan and its start question, never with long acquisition.
+A saved frame whose recorded plan decision is the user's actual approval resumes
+without repeating intake. When the user passes it as a folder or file path, the
+first reply restates its scope and next action and asks the user to confirm
+continuing before new acquisition, because the plan may have been approved
+outside this conversation.
+
 ## Compact plan contents
 
 - Original question slots and neutral, testable hardened question
