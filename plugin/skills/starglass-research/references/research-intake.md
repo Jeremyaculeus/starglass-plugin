@@ -41,7 +41,7 @@ When the user says "go ahead" before seeing a plan, stop optional questions, sho
 the plan with assumptions, and request its start decision. A reply to a shown plan
 can approve it. Neither reply authorizes a new confidential-data destination.
 
-Invoking the skill, its `deep-research` command or the server's `deep_research`
+Invoking the skill, its `investigate` command or the server's `investigate`
 prompt starts this conversation; it is not approval of a plan. Treat such a
 request as long research unless it names one record or identifier and asks for
 one or two of its fields, or the user explicitly asks for a quick lookup that

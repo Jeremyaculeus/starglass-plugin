@@ -33,7 +33,7 @@ storage. ChatGPT and Codex use the host's actual file/chat capabilities.
 Invoking this skill is the user's request to start StarGlass deep research, in
 this AI host, on the question that came with it. Do not wait for the words "deep
 research". The question is the text sent with the invocation (in Claude Code,
-`ARGUMENTS:` after these instructions or the `/starglass-research:deep-research`
+`ARGUMENTS:` after these instructions or the `/starglass-research:investigate`
 request; in Codex, the message that mentions `$starglass-research`) or, when the
 host loaded this skill on its own, the user's latest message. Invocation starts
 intake. It is not approval of a plan, permission for private data, or permission

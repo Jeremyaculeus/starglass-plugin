@@ -29,13 +29,13 @@ The server exposes `sources_list`, `source_search`, `source_fetch` and
 
 ## Start an investigation
 
-Run `/starglass-research:deep-research <question>`, or invoke the skill with
+Run `/starglass-research:investigate <question>`, or invoke the skill with
 `/starglass-research:starglass-research <question>`. Claude may also load the
 skill itself when you ask it to research a public-record question. In Codex,
 send `$starglass-research <question>` after installing the skill; if you
 installed it before 0.3.0, run `npx skills update starglass-research` (or re-run
 the `npx skills add` command), then start a new session. Other MCP clients can
-use the server's `deep_research` prompt once MCP server 0.3.6, which ships it,
+use the server's `investigate` prompt once MCP server 0.3.6, which ships it,
 is deployed to aculeus.ai; it is not available before that deployment.
 
 Invocation tells your AI host to start adaptive intake. The skill instructs the

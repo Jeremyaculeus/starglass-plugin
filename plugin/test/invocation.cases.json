@@ -4,12 +4,12 @@
   "scope": "Manual native-host exercises for what happens when StarGlass is invoked; no model execution or live acquisition is claimed.",
   "host_variants": [
     "claude-code-skill-invoked",
-    "claude-code-deep-research-command",
+    "claude-code-investigate-command",
     "codex-skill-mentioned"
   ],
   "host_invocations": {
     "claude-code-skill-invoked": "/starglass-research:starglass-research",
-    "claude-code-deep-research-command": "/starglass-research:deep-research",
+    "claude-code-investigate-command": "/starglass-research:investigate",
     "codex-skill-mentioned": "$starglass-research"
   },
   "start_requirements": {
@@ -37,7 +37,7 @@
       "id": "skill-invoked-plain-question",
       "hosts": [
         "claude-code-skill-invoked",
-        "claude-code-deep-research-command",
+        "claude-code-investigate-command",
         "codex-skill-mentioned"
       ],
       "messages": [
@@ -48,8 +48,8 @@
         },
         {
           "role": "user",
-          "host": "claude-code-deep-research-command",
-          "text": "/starglass-research:deep-research How much federal money did the synthetic Example Care organization receive, and from which agencies?"
+          "host": "claude-code-investigate-command",
+          "text": "/starglass-research:investigate How much federal money did the synthetic Example Care organization receive, and from which agencies?"
         },
         {
           "role": "user",
@@ -90,7 +90,7 @@
       "id": "skill-invoked-empty",
       "hosts": [
         "claude-code-skill-invoked",
-        "claude-code-deep-research-command",
+        "claude-code-investigate-command",
         "codex-skill-mentioned"
       ],
       "messages": [
@@ -101,8 +101,8 @@
         },
         {
           "role": "user",
-          "host": "claude-code-deep-research-command",
-          "text": "/starglass-research:deep-research"
+          "host": "claude-code-investigate-command",
+          "text": "/starglass-research:investigate"
         },
         {
           "role": "user",
@@ -168,7 +168,7 @@
       "id": "skill-invoked-signed-out",
       "hosts": [
         "claude-code-skill-invoked",
-        "claude-code-deep-research-command",
+        "claude-code-investigate-command",
         "codex-skill-mentioned"
       ],
       "messages": [
@@ -179,8 +179,8 @@
         },
         {
           "role": "user",
-          "host": "claude-code-deep-research-command",
-          "text": "/starglass-research:deep-research Which lobbying disclosures name the synthetic Example Care organization as a client since 2022?"
+          "host": "claude-code-investigate-command",
+          "text": "/starglass-research:investigate Which lobbying disclosures name the synthetic Example Care organization as a client since 2022?"
         },
         {
           "role": "user",
@@ -211,7 +211,7 @@
       "id": "resume-saved-frame",
       "hosts": [
         "claude-code-skill-invoked",
-        "claude-code-deep-research-command",
+        "claude-code-investigate-command",
         "codex-skill-mentioned"
       ],
       "messages": [
@@ -222,8 +222,8 @@
         },
         {
           "role": "user",
-          "host": "claude-code-deep-research-command",
-          "text": "/starglass-research:deep-research ./cases/example-care"
+          "host": "claude-code-investigate-command",
+          "text": "/starglass-research:investigate ./cases/example-care"
         },
         {
           "role": "user",

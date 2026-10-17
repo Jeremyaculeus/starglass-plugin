@@ -1,13 +1,13 @@
 ---
-name: deep-research
-description: Start a StarGlass investigation in your own AI host. Asks the missing intake questions, then shows an editable Case Plan for your decision before any long source acquisition. Pass a saved case folder to resume an approved investigation.
+name: investigate
+description: Investigate a public-record question with StarGlass in your own AI host. Asks the missing intake questions, then shows an editable Case Plan for your decision before any long source acquisition. Pass a saved case folder to resume an approved investigation.
 argument-hint: "[question: who or what, period, what you need] or [saved case folder]"
 disable-model-invocation: true
 metadata:
   internal: true
 ---
 
-Research request: $ARGUMENTS
+Investigation request: $ARGUMENTS
 
 Load the `starglass-research:starglass-research` skill now with this request as
 its arguments, and follow its "Start here when this skill is invoked" section.

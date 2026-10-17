@@ -112,10 +112,10 @@ test('existing workflow steps and markers are kept, and review points at the nat
   assert.match(review, /references\/skeptical-review\.md/);
 });
 
-test('deep-research command is user-only, hidden from npx discovery and delegates once', () => {
-  const text = read('skills/deep-research/SKILL.md');
+test('investigate command is user-only, hidden from npx discovery and delegates once', () => {
+  const text = read('skills/investigate/SKILL.md');
   const { data, body } = frontmatter(text);
-  assert.equal(data.name, 'deep-research');
+  assert.equal(data.name, 'investigate');
   assert.equal(data['disable-model-invocation'], true);
   assert.equal(typeof data['argument-hint'], 'string');
   assert.ok(data['argument-hint'].length > 0);
@@ -173,13 +173,13 @@ test('READMEs document how to start research without implying hosted Deep Resear
     assert.ok(doc.includes('npx skills update starglass-research'), 'existing Codex installs need the update step');
     assert.match(flat(doc), /no native host test of this start flow is claimed yet/);
     assert.match(flat(doc), /quick lookup that stays within one record or one source family/);
-    assert.ok(doc.includes('/starglass-research:deep-research <question>'));
+    assert.ok(doc.includes('/starglass-research:investigate <question>'));
     assert.ok(doc.includes('$starglass-research <question>'));
     assert.match(flat(doc), /deployed to aculeus\.ai/);
     assert.match(flat(doc), /Proceed with this plan, or change anything\?/);
     assert.match(flat(doc), /hosted Aculeus Deep Research is a separate product and is not included in the USD 49 plan/i);
   }
-  assert.match(flat(readme), /`deep_research` MCP prompt, .* ships with MCP server 0\.3\.6/);
+  assert.match(flat(readme), /`investigate` MCP prompt, .* ships with MCP server 0\.3\.6/);
   assert.match(readme, /claude plugin enable starglass-research@starglass --scope user/);
 });
 

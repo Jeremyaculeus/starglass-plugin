@@ -20,7 +20,7 @@ the policy. You can also give the host this workflow and its linked resources.
 Invoking StarGlass tells the host to start adaptive intake; you do not need to
 ask for "deep research" or paste a procedure.
 
-- **Claude Code:** `/starglass-research:deep-research <question>`, or invoke the
+- **Claude Code:** `/starglass-research:investigate <question>`, or invoke the
   skill with `/starglass-research:starglass-research <question>`. Claude may also
   load the skill itself for a public-record research request. Pass a saved case
   folder to the command to resume an approved case without repeating intake; the
@@ -28,7 +28,7 @@ ask for "deep research" or paste a procedure.
 - **Codex:** `$starglass-research <question>` after installing the skill. If you
   installed it before 0.3.0, run `npx skills update starglass-research` (or
   re-run the `npx skills add` command), then start a new session.
-- **Other MCP clients:** the `deep_research` MCP prompt ships with MCP server
+- **Other MCP clients:** the `investigate` MCP prompt ships with MCP server
   0.3.6. It must be deployed to aculeus.ai before use; a client package release
   does not deploy it. Until then, and in hosts that do not list MCP prompts, use
   the request below.

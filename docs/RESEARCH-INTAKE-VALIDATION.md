@@ -3,7 +3,7 @@
 This candidate changes the host-led workflow, not the acquisition or check APIs.
 Release versions are client package 0.3.0, research protocol 0.2.5 and MCP server
 0.3.6. They are independent. The backend must be released separately for
-skill-free MCP hosts to receive the new instructions and the `deep_research`
+skill-free MCP hosts to receive the new instructions and the `investigate`
 prompt; until that release is deployed, hosts keep the previously deployed
 server's instructions and no prompt.
 
@@ -12,7 +12,7 @@ server's instructions and no prompt.
 From client package 0.3.0, invoking the skill
 (`/starglass-research:starglass-research <question>` in Claude Code,
 `$starglass-research <question>` in Codex) or the Claude Code command
-`/starglass-research:deep-research <question>` instructs the host to start
+`/starglass-research:investigate <question>` instructs the host to start
 adaptive intake. The instructed first reply restates the question, inspects the
 tool schemas, calls `sources_list({})` as discovery only, then asks the single
 most consequential missing decision or shows the compact Case Plan with "Proceed
@@ -24,7 +24,7 @@ record or one source family, take the bounded-lookup path. An empty invocation i
 instructed to ask what to investigate, missing or signed-out tools to point to
 https://aculeus.ai/connect without an invented catalogue, and a saved case folder
 to resume an approved frame without repeating intake once the user confirms its
-next action. MCP server 0.3.6 adds the same start as the `deep_research` prompt,
+next action. MCP server 0.3.6 adds the same start as the `investigate` prompt,
 registered without arguments, and a short instruction prefix; its
 initialization instructions stay within the 4,096 characters Claude Code keeps.
 Protocol 0.2.5 and its four intake steps are unchanged. The plugin now starts
@@ -59,7 +59,7 @@ availability in both initialization instructions and the catalogue protocol.
 The backend's existing SDK transport fixture now checks MCP server version,
 the exact initialization instructions and the complete advertised protocol.
 Its research-intake spec tests the policy contract, and its research-prompt
-spec checks the `deep_research` prompt through the SDK without source calls.
+spec checks the `investigate` prompt through the SDK without source calls.
 Run the normal backend `npm run test:plugin-research -- --fixtures`,
 `npm run typecheck` and `npm run lint` in a complete checkout with its
 dependencies before release.
