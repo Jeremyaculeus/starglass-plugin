@@ -136,17 +136,17 @@ function rawTopLevelField(raw, wanted) {
 }
 
 function main(raw) {
-  if (Buffer.byteLength(raw, 'utf8') > MAX_EVENT_BYTES) return { active: true, output: result('StarGlass local capture failed: event exceeded the 5 MiB safety limit.') };
+  if (Buffer.byteLength(raw, 'utf8') > MAX_EVENT_BYTES) return { active: true, output: result('Starglass local capture failed: event exceeded the 5 MiB safety limit.') };
   let event;
   try { event = JSON.parse(raw); } catch {
-    return { active: true, output: result('StarGlass local capture failed: hook event was not valid JSON.') };
+    return { active: true, output: result('Starglass local capture failed: hook event was not valid JSON.') };
   }
   if (!event || typeof event !== 'object' || Array.isArray(event)) {
-    return { active: true, output: result('StarGlass local capture failed: hook event was malformed.') };
+    return { active: true, output: result('Starglass local capture failed: hook event was malformed.') };
   }
   if (!TOOL_NAMES.has(event.tool_name)) return { active: false };
   if (typeof event.cwd !== 'string' || !path.isAbsolute(event.cwd)) {
-    return { active: true, output: result('StarGlass local capture failed: case directory was invalid.') };
+    return { active: true, output: result('Starglass local capture failed: case directory was invalid.') };
   }
 
   let root;
@@ -155,13 +155,13 @@ function main(raw) {
     const eventRoot = fs.realpathSync(event.cwd);
     if (eventRoot !== root || !fs.statSync(root).isDirectory()) throw new Error('case path does not match hook working directory');
   } catch {
-    return { active: true, output: result('StarGlass local capture failed: case directory was unavailable.') };
+    return { active: true, output: result('Starglass local capture failed: case directory was unavailable.') };
   }
   const marker = path.join(root, '.starglass-capture.json');
   if (!isRegularFileNoLink(marker)) return { active: false };
   let consent;
   try { consent = JSON.parse(fs.readFileSync(marker, 'utf8')); } catch {
-    return { active: true, output: result('StarGlass local capture failed: opt-in marker was malformed.') };
+    return { active: true, output: result('Starglass local capture failed: opt-in marker was malformed.') };
   }
   if (!consent || consent.enabled !== true || consent.schema_version !== '1') return { active: false };
 
@@ -169,7 +169,7 @@ function main(raw) {
       typeof event.tool_use_id !== 'string' || !SAFE_ID.test(event.tool_use_id) ||
       !event.tool_input || typeof event.tool_input !== 'object' || Array.isArray(event.tool_input) ||
       !Object.hasOwn(event, 'tool_response')) {
-    return { active: true, output: result('StarGlass local capture failed: event IDs or source payload were invalid.') };
+    return { active: true, output: result('Starglass local capture failed: event IDs or source payload were invalid.') };
   }
 
   try {
@@ -188,12 +188,12 @@ function main(raw) {
     if (bytes.byteLength > MAX_EVENT_BYTES) throw new Error('source payload exceeded the 5 MiB safety limit');
     const status = saveExclusive(target, bytes);
     const hash = crypto.createHash('sha256').update(bytes).digest('hex');
-    return { active: true, output: result('StarGlass source response ' + status + ': ' + relativePath + ' (SHA-256 ' + hash + ').') };
+    return { active: true, output: result('Starglass source response ' + status + ': ' + relativePath + ' (SHA-256 ' + hash + ').') };
   } catch (error) {
     const safe = error.message === 'capture ID already exists with different content'
       ? error.message
       : 'local write or path validation failed';
-    return { active: true, output: result('StarGlass local capture failed: ' + safe + '.') };
+    return { active: true, output: result('Starglass local capture failed: ' + safe + '.') };
   }
 }
 
@@ -221,7 +221,7 @@ if (require.main === module) {
         optedIn = false;
       }
       outcome = optedIn
-        ? { active: true, output: result('StarGlass local capture failed: event exceeded the 5 MiB safety limit.') }
+        ? { active: true, output: result('Starglass local capture failed: event exceeded the 5 MiB safety limit.') }
         : { active: false };
     } else {
       outcome = main(input);

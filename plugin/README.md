@@ -1,8 +1,8 @@
-# StarGlass Research
+# Starglass Research
 
-![StarGlass](assets/logo.png)
+![Starglass](assets/logo.png)
 
-StarGlass connects your AI host to selected official public records. Your host
+Starglass connects your AI host to selected official public records. Your host
 supplies the reasoning and keeps the conversation. The MCP server provides
 read-only source coverage, searches, bounded cited passages and mechanical
 checks of supplied evidence. It does not call Parallel or a proprietary LLM.
@@ -11,7 +11,7 @@ checks of supplied evidence. It does not call Parallel or a proprietary LLM.
 
 Create an account at [aculeus.ai/start](https://aculeus.ai/start), verify your
 email, and activate the cardless 30-day trial at
-[your StarGlass account](https://aculeus.ai/account/starglass). Installing this
+[your Starglass account](https://aculeus.ai/account/starglass). Installing this
 plugin does not create an account or activate a trial. After 30 days, research
 pauses unless you explicitly choose the USD 49 monthly subscription. No automatic
 trial conversion occurs. The offer includes 1,000 MCP source operations per UTC
@@ -22,7 +22,7 @@ Research and shared workspaces are separate.
 
 This bundle supplies the research skill and a remote MCP connection at
 `https://aculeus.ai/api/mcp`. Authenticate through the host's normal OAuth flow
-with your StarGlass account. Follow the
+with your Starglass account. Follow the
 [connection guide](https://aculeus.ai/connect) for installation and other hosts.
 The server exposes `sources_list`, `source_search`, `source_fetch` and
 `evidence_check`. Check the live catalogue for source availability and limits.
@@ -39,7 +39,7 @@ use the server's `investigate` prompt once MCP server 0.3.6, which ships it,
 is deployed to aculeus.ai; it is not available before that deployment.
 
 Invocation tells your AI host to start adaptive intake. The skill instructs the
-host to restate your question, check the StarGlass catalogue and ask the single
+host to restate your question, check the Starglass catalogue and ask the single
 most consequential missing decision (it accepts "I don't know"), then show an
 editable Case Plan and ask "Proceed with this plan, or change anything?" The
 instructions make source searches and fetches wait for your approval of the plan
@@ -57,14 +57,14 @@ product and is not included in the USD 49 plan.
 
 The plugin starts enabled from version 0.3.0 unless you have already set it.
 The bundled `starglass-reviewer` subagent runs the skeptical review in a separate
-context with read-only file tools and StarGlass `source_fetch` and
+context with read-only file tools and Starglass `source_fetch` and
 `evidence_check`. It inherits the session's model, so it is not a second model.
 Its `source_fetch` calls reopen records already in the case and count toward
 your monthly source operations.
 
 ## What runs and where data goes
 
-The host sends research tool inputs to the StarGlass MCP server, which retrieves
+The host sends research tool inputs to the Starglass MCP server, which retrieves
 records from its supported official-source APIs and returns passages, canonical
 URLs, retrieval dates, locators and hashes. Account and aggregate quota
 bookkeeping remain on Aculeus. The MCP does not store your research files or
@@ -72,7 +72,7 @@ final reports. Website Quick Answer is a separate feature, outside these four
 MCP tools.
 
 Claude Code also runs the bundled Node.js
-[capture hook](scripts/capture.js) after matching StarGlass tool calls. It writes
+[capture hook](scripts/capture.js) after matching Starglass tool calls. It writes
 successful tool-event evidence into the current case directory only when that
 directory contains the explicitly authorized `.starglass-capture.json` marker.
 With that marker, it saves the allowed session/tool identifiers, tool input and

@@ -1,7 +1,7 @@
 {
   "schema_version": "1",
   "kind": "synthetic_manual_host_rubric",
-  "scope": "Manual native-host exercises for what happens when StarGlass is invoked; no model execution or live acquisition is claimed.",
+  "scope": "Manual native-host exercises for what happens when Starglass is invoked; no model execution or live acquisition is claimed.",
   "host_variants": [
     "claude-code-skill-invoked",
     "claude-code-investigate-command",
@@ -19,7 +19,7 @@
     "default_intake": "When in doubt, run intake",
     "bounded_lookup": "names one record or identifier and asks for one or two of its fields",
     "explicit_quick_lookup": "explicitly asks for a quick lookup",
-    "empty_request": "What should StarGlass investigate?",
+    "empty_request": "What should Starglass investigate?",
     "resume": "do not re-ask answered intake",
     "resume_needs_user_decision": "set by the assistant alone, show the saved plan and ask for the decision",
     "discovery_only": "catalogue discovery is not source acquisition",
@@ -117,11 +117,11 @@
         "empty_request"
       ],
       "expected": [
-        "Ask \"What should StarGlass investigate?\" and stop"
+        "Ask \"What should Starglass investigate?\" and stop"
       ],
       "forbidden": [
         "Inventing a research question",
-        "Showing a Case Plan or calling any StarGlass source tool"
+        "Showing a Case Plan or calling any Starglass source tool"
       ]
     },
     {
@@ -198,7 +198,7 @@
         "plan_question"
       ],
       "expected": [
-        "Say the StarGlass tools are missing or need sign-in and point to https://aculeus.ai/connect",
+        "Say the Starglass tools are missing or need sign-in and point to https://aculeus.ai/connect",
         "Continue intake, labeling the catalogue and checks as unavailable in any plan shown",
         "Ask the most consequential missing decision, or show the compact plan and ask \"Proceed with this plan, or change anything?\""
       ],
