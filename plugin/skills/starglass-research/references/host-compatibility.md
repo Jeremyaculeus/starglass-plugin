@@ -9,7 +9,7 @@ The installed plugin packages this skill and an OAuth MCP connection. Claude Cod
 supports native subagents with separate context and tool access. The plugin
 bundles `starglass-research:starglass-reviewer`, which carries the
 [review brief](skeptical-review.md), inherits the session model and is limited to
-Read, Grep, Glob and the StarGlass `source_fetch` and `evidence_check` tools.
+Read, Grep, Glob and the Starglass `source_fetch` and `evidence_check` tools.
 It is told to fetch only records already in the case and to list each fetch for
 the host's source manifest; the tool allowlist itself cannot enforce that.
 Use it, or another available native review subagent, after checking its

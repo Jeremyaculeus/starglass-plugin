@@ -83,7 +83,7 @@ test('only exact allowed tool is saved, preserving input and response values', (
   });
   const serialized = JSON.stringify(sourceEvent);
   const saved = run(serialized, dir);
-  assert.match(context(saved), /^StarGlass source response saved: \.starglass-evidence\/session_123\/toolu_123\.json \(SHA-256 [a-f0-9]{64}\)\.$/);
+  assert.match(context(saved), /^Starglass source response saved: \.starglass-evidence\/session_123\/toolu_123\.json \(SHA-256 [a-f0-9]{64}\)\.$/);
   const receiptBytes = fs.readFileSync(path.join(dir, '.starglass-evidence', 'session_123', 'toolu_123.json'), 'utf8');
   const record = JSON.parse(receiptBytes);
   assert.deepEqual(Object.keys(record), ['session_id', 'tool_use_id', 'tool_name', 'tool_input', 'tool_response']);
@@ -158,7 +158,7 @@ test('hostile source payload remains inert data', (t) => {
 
 test('malformed event reports a concise failure without payload leakage', () => {
   const output = context(run('{"tool_name":'));
-  assert.equal(output, 'StarGlass local capture failed: hook event was not valid JSON.');
+  assert.equal(output, 'Starglass local capture failed: hook event was not valid JSON.');
 });
 
 test('oversized events fail only after local opt-in', (t) => {
@@ -166,6 +166,6 @@ test('oversized events fail only after local opt-in', (t) => {
   const large = JSON.stringify(event(dir, { tool_response: { text: 'x'.repeat(5 * 1024 * 1024) } }));
   assert.equal(context(run(large, dir)), null);
   activate(dir);
-  assert.equal(context(run(large, dir)), 'StarGlass local capture failed: event exceeded the 5 MiB safety limit.');
+  assert.equal(context(run(large, dir)), 'Starglass local capture failed: event exceeded the 5 MiB safety limit.');
   assert.deepEqual(fs.readdirSync(dir), ['.starglass-capture.json']);
 });

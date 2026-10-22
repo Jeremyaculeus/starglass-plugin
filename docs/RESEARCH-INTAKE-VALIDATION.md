@@ -7,6 +7,19 @@ skill-free MCP hosts to receive the new instructions and the `investigate`
 prompt; until that release is deployed, hosts keep the previously deployed
 server's instructions and no prompt.
 
+## Naming update, client package 0.3.1 (2026-10-22)
+
+Client package 0.3.1 changes wording only, under the founder's naming ruling of
+2026-10-22 (recorded in the backend repository as
+`docs/STARGLASS-RESEARCH-CONSOLIDATION-2026-10-22.md`). Hosted research is
+"Starglass Deep Research", no longer "Aculeus Deep Research", and prose spells the
+product "Starglass". It is a rename, not an offer change: hosted Starglass Deep
+Research, Case creation and shared workspaces are still not in the USD 49 plan.
+The intake, start flow, tools, hook behavior, identifiers, MCP connection, scope
+and plugin id are unchanged; the `displayName` in `plugin.json` is unchanged pending
+a founder decision. Research protocol 0.2.5 and MCP server 0.3.6 are unchanged.
+The local checks below cover this version with the same commands.
+
 ## Invocation starts intake
 
 From client package 0.3.0, invoking the skill

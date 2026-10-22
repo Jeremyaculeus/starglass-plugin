@@ -1,6 +1,6 @@
 # Research loop
 
-The host is responsible for meaning and investigation. StarGlass handles bounded
+The host is responsible for meaning and investigation. Starglass handles bounded
 acquisition, provenance, and exposed mechanical checks. No string-matching rule
 can decide whether a passage answers the user's question.
 
@@ -153,7 +153,7 @@ For PDFs, inspect the relevant rendered pages and extracted text when available.
 Record printed versus PDF page numbers. Mark OCR errors, unreadable tables,
 missing pages, scans, or extraction failures and withhold affected figures until
 resolved. Host evidence keeps its own provenance; local hashes or line numbering
-are not StarGlass receipts. Do not upload private files to StarGlass or another
+are not Starglass receipts. Do not upload private files to Starglass or another
 service just to run this workflow.
 
 ## Synthesize, challenge, repair

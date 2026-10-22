@@ -1,6 +1,6 @@
-# Research with StarGlass
+# Research with Starglass
 
-StarGlass supplies read-only public-record acquisition and exposed mechanical
+Starglass supplies read-only public-record acquisition and exposed mechanical
 checks. Your Claude, ChatGPT, or Codex host performs the investigation, meaning,
 synthesis, and skeptical review using your existing host account. The service does
 not call model APIs or Parallel. Host reasoning and agent tokens are intended to
@@ -11,13 +11,13 @@ Use the [starglass-research skill](../plugin/skills/starglass-research/SKILL.md)
 when your host loads it. A custom MCP connection alone does not prove that a host
 loaded the skill. MCP server 0.3.5 and later advertise protocol 0.2.5 through
 initialization instructions and `sources_list`, including the same adaptive
-intake policy for skill-free hosts. Client package 0.3.0 is a separate version.
+intake policy for skill-free hosts. Client package 0.3.1 is a separate version.
 Installing it does not prove that the server is updated or that a host follows
 the policy. You can also give the host this workflow and its linked resources.
 
 ## Start an investigation
 
-Invoking StarGlass tells the host to start adaptive intake; you do not need to
+Invoking Starglass tells the host to start adaptive intake; you do not need to
 ask for "deep research" or paste a procedure.
 
 - **Claude Code:** `/starglass-research:investigate <question>`, or invoke the
@@ -44,14 +44,14 @@ one named record or identifier, or an explicit quick lookup that stays within on
 record or one source family, takes the bounded-lookup path; a quick request that
 needs multi-source or multi-page acquisition still gets the plan. These are
 instructions to the host; no native host test of this start flow is claimed yet.
-This is host-led research in your own AI host; hosted Aculeus Deep Research is a
+This is host-led research in your own AI host; hosted Starglass Deep Research is a
 separate product and is not included in the USD 49 plan.
 
 ## A research request
 
 For hosts without the skill or the server prompt, paste this request:
 
-> Use StarGlass and your available authorized host tools to investigate this
+> Use Starglass and your available authorized host tools to investigate this
 > question. Read what I have already answered. Before long research, ask brief
 > follow-up rounds for material missing decisions, accept "I don't know", and
 > separate researchable unknowns from optional preferences. Harden my question
@@ -87,7 +87,7 @@ A [portable evidence bundle](../plugin/skills/starglass-research/references/evid
 contains the case frame, source manifest and captured passages, claims ledger,
 search/coverage log, skeptical review, mechanical check responses, and report.
 Save it only in an authorized host location. If file tools are absent, keep the
-same structured record in chat or a supported export. StarGlass does not create
+same structured record in chat or a supported export. Starglass does not create
 a mandatory hosted Case or save a background research archive.
 Save the frame, manifest, and original-question acceptance matrix before
 acquisition; update receipts and coverage after every purposeful batch. Claude
@@ -104,7 +104,7 @@ ownership. Discovery metadata does not replace acquired source context.
 For organization audits, tax returns, board documents, state records, PDFs, or
 user files outside the adapters, use available authorized host tools and retain
 their actual provenance. Disclose missing text, OCR errors, or unreadable pages.
-Never attach an invented StarGlass receipt to those records.
+Never attach an invented Starglass receipt to those records.
 
 ## Continue an interrupted investigation
 
@@ -115,7 +115,7 @@ frame, note, and relevant evidence files. The host should read bounded sections
 and reuse successful acquisitions while preserving the original scope, dates,
 source versions, and gaps. The [recovery procedure](../plugin/skills/starglass-research/references/research-loop.md#continue-after-a-context-or-session-limit)
 keeps exact evidence available without replaying the entire conversation.
-Wait for a subscription allowance to reset before continuing; StarGlass does
+Wait for a subscription allowance to reset before continuing; Starglass does
 not bypass host limits. If the files are unavailable, report the missing
 continuity and any affected conclusions.
 
