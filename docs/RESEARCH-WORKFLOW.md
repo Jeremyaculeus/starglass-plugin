@@ -11,7 +11,7 @@ Use the [starglass-research skill](../plugin/skills/starglass-research/SKILL.md)
 when your host loads it. A custom MCP connection alone does not prove that a host
 loaded the skill. MCP server 0.3.5 and later advertise protocol 0.2.5 through
 initialization instructions and `sources_list`, including the same adaptive
-intake policy for skill-free hosts. Client package 0.3.0 is a separate version.
+intake policy for skill-free hosts. Client package 0.3.1 is a separate version.
 Installing it does not prove that the server is updated or that a host follows
 the policy. You can also give the host this workflow and its linked resources.
 
