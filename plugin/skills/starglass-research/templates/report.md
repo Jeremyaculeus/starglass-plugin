@@ -33,4 +33,4 @@ partial. A failed or incomplete search does not establish absence.
 ## Next decisive evidence
 
 Name records or tests that could materially change the answer. Link the host-owned
-bundle only if it was actually saved/exported. StarGlass did not archive this report.
+bundle only if it was actually saved/exported. Starglass did not archive this report.

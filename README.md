@@ -1,10 +1,10 @@
-# StarGlass Research
+# Starglass Research
 
-StarGlass connects your AI host to selected official public-record sources. Claude Code, ChatGPT, and Codex supply research reasoning and keep the conversation; StarGlass provides read-only source discovery, bounded passages with canonical URLs, retrieval dates, line locators and integrity hashes, plus mechanical checks for supplied evidence.
+Starglass connects your AI host to selected official public-record sources. Claude Code, ChatGPT, and Codex supply research reasoning and keep the conversation; Starglass provides read-only source discovery, bounded passages with canonical URLs, retrieval dates, line locators and integrity hashes, plus mechanical checks for supplied evidence.
 
 ## Start a trial
 
-Create a Starglass account at [aculeus.ai/start](https://aculeus.ai/start), verify your email, then activate the cardless 30-day trial at [your StarGlass account](https://aculeus.ai/account/starglass). Set up a supported host at [aculeus.ai/connect](https://aculeus.ai/connect). Installing a client does not create an account or activate a trial.
+Create a Starglass account at [aculeus.ai/start](https://aculeus.ai/start), verify your email, then activate the cardless 30-day trial at [your Starglass account](https://aculeus.ai/account/starglass). Set up a supported host at [aculeus.ai/connect](https://aculeus.ai/connect). Installing a client does not create an account or activate a trial.
 
 After the trial, you may explicitly choose a subscription for **USD 49 per user per month**. The trial does not convert automatically. Active accounts include 1,000 MCP source operations per person per UTC calendar month. Website Quick Answer has a separate USD 5 provider-cost allowance for the whole trial and for each paid service month. Aculeus absorbs any provider cost from a final Quick Answer that exceeds its allowance; customers have no overage charge. MCP research uses your AI host and does not call a proprietary LLM or Parallel. Quick Answer is available on the website only. Hosted Deep Research, Case creation and Aculeus shared workspaces are separate. Your AI host subscription is also separate.
 
@@ -24,7 +24,7 @@ The first two commands register and authenticate the MCP server; the `npx` comma
 
 ### Claude Code
 
-The plugin bundles the MCP connection and research skill. Sign in with your StarGlass account when prompted:
+The plugin bundles the MCP connection and research skill. Sign in with your Starglass account when prompted:
 
 ```sh
 claude plugin marketplace add Jeremyaculeus/starglass-plugin
@@ -37,19 +37,19 @@ From plugin 0.3.0 the plugin starts enabled when you have not set it yourself, s
 
 ### ChatGPT
 
-Custom MCP app availability depends on your plan and workspace settings. In ChatGPT, create a custom app using OAuth and this server URL: `https://aculeus.ai/api/mcp`. Sign in with your StarGlass account, approve read-only access, then select StarGlass in a new chat. The recorded personal Pro account completed sign-in, source discovery, search and fetch on October 2, 2026; this is historical evidence and does not guarantee availability for every account or imply a directory listing.
+Custom MCP app availability depends on your plan and workspace settings. In ChatGPT, create a custom app using OAuth and this server URL: `https://aculeus.ai/api/mcp`. Sign in with your Starglass account, approve read-only access, then select Starglass in a new chat. The recorded personal Pro account completed sign-in, source discovery, search and fetch on October 2, 2026; this is historical evidence and does not guarantee availability for every account or imply a directory listing.
 
 For current steps and other clients, see the [connection guide](https://aculeus.ai/connect). Support: [jeremy@aculeus.ai](mailto:jeremy@aculeus.ai). Read the [privacy policy](https://aculeus.ai/privacy).
 
 ## Start an investigation
 
-Invoking StarGlass tells your AI host to start an investigation. The skill instructs the host to restate your question, check the StarGlass catalogue and ask the single missing decision that would most change the inquiry; "I don't know" is an accepted answer. When nothing material is missing, it instructs the host to show an editable Case Plan and ask "Proceed with this plan, or change anything?" The instructions make source searches and fetches wait for your approval of the plan you have seen; a question or change returns to the plan. Invoking StarGlass is not approval of a plan, and neither invoking it nor approving a plan authorizes sending private material. A request for one or two fields of one named record, or an explicit quick lookup that stays within one record or one source family, skips the plan loop; a quick request that needs multi-source or multi-page acquisition still gets the plan. These are instructions to your host; no native host test of this start flow is claimed yet.
+Invoking Starglass tells your AI host to start an investigation. The skill instructs the host to restate your question, check the Starglass catalogue and ask the single missing decision that would most change the inquiry; "I don't know" is an accepted answer. When nothing material is missing, it instructs the host to show an editable Case Plan and ask "Proceed with this plan, or change anything?" The instructions make source searches and fetches wait for your approval of the plan you have seen; a question or change returns to the plan. Invoking Starglass is not approval of a plan, and neither invoking it nor approving a plan authorizes sending private material. A request for one or two fields of one named record, or an explicit quick lookup that stays within one record or one source family, skips the plan loop; a quick request that needs multi-source or multi-page acquisition still gets the plan. These are instructions to your host; no native host test of this start flow is claimed yet.
 
 - **Claude Code:** run `/starglass-research:investigate <question>`, or invoke the skill with `/starglass-research:starglass-research <question>`. Claude may also load the skill itself when you ask it to research a public-record question. To resume a saved case, pass its folder: `/starglass-research:investigate <case-folder>`. The host is instructed to restate the saved scope and next action and ask you to confirm before new acquisition.
 - **Codex:** in a new session after installing the skill, send `$starglass-research <question>`. Update an install from before 0.3.0 first, as described under Codex above.
 - **Other MCP clients:** an `investigate` MCP prompt, which starts the same intake in clients that list MCP prompts, ships with MCP server 0.3.6. That server must be deployed to aculeus.ai before the prompt can be used. Until then, paste the [research request](docs/RESEARCH-WORKFLOW.md#a-research-request). The server also advertises the intake policy to skill-free hosts through its initialization instructions and `sources_list`; whether a given host reads them is not tested.
 
-This is host-led research that uses your AI host's reasoning with the StarGlass tools. Hosted Aculeus Deep Research is a separate product and is not included in the USD 49 plan.
+This is host-led research that uses your AI host's reasoning with the Starglass tools. Hosted Aculeus Deep Research is a separate product and is not included in the USD 49 plan.
 
 ## Research workflow and coverage
 

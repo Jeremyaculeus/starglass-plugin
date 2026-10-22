@@ -33,7 +33,7 @@ search exhaustion alone does not define the question's coverage.
 
 ## Optional Claude Code local capture
 
-Claude Code installations can capture successful StarGlass tool events through the
+Claude Code installations can capture successful Starglass tool events through the
 packaged PostToolUse hook. It is disabled unless the user has authorized storage
 in the current case directory and that directory contains this regular local file.
 The Claude hook process must have Node.js 18 or later available as node on PATH.
@@ -159,7 +159,7 @@ The input consists of:
 The checker is stateless and checks caller-provided evidence; it does not fetch
 or authenticate a source, sign a research receipt, or archive evidence. Host-created
 captures may be checked only if all schema fields are truthfully available, with
-their host provenance disclosed. They never become StarGlass acquisition receipts.
+their host provenance disclosed. They never become Starglass acquisition receipts.
 Keep private user files local; sending their content for a service check requires
 explicit authorization. Unsupported captures retain local inspection limitations.
 

@@ -1,6 +1,6 @@
 'use strict';
 
-// Static contract checks for what happens when StarGlass is invoked. They verify
+// Static contract checks for what happens when Starglass is invoked. They verify
 // that the instructions exist and stay consistent; they do not run a model or
 // prove that any host follows them. invocation.cases.json is the manual rubric.
 
@@ -76,7 +76,7 @@ test('start section comes first and makes invocation start intake, not approval'
     'It is not approval of a plan',
     'Proceed with this plan, or change anything?',
     'When in doubt, run intake',
-    'What should StarGlass investigate?',
+    'What should Starglass investigate?',
     'https://aculeus.ai/connect',
     "accept \"I don't know\"",
     'catalogue discovery is not source acquisition',
@@ -86,7 +86,7 @@ test('start section comes first and makes invocation start intake, not approval'
     'not the separate hosted Aculeus Deep Research product',
   ]) assert.ok(start.includes(phrase), 'start section lacks: ' + phrase);
   assert.ok(start.indexOf('sources_list') < start.indexOf('Case Plan'));
-  assert.ok(start.indexOf('What should StarGlass investigate?') < start.indexOf('sources_list({})'));
+  assert.ok(start.indexOf('What should Starglass investigate?') < start.indexOf('sources_list({})'));
   assert.ok(start.indexOf('ask only the most consequential one') < start.indexOf('show the compact Case Plan'));
   // Long acquisition is named once, only in the sentence that makes it wait.
   assert.equal(count(start, 'source_search'), 1);
@@ -127,7 +127,7 @@ test('investigate command is user-only, hidden from npx discovery and delegates 
   const flatBody = flat(body);
   assert.match(flatBody, /`starglass-research:starglass-research`/);
   assert.ok(flatBody.includes('"Start here when this skill is invoked"'));
-  assert.ok(flatBody.includes('What should StarGlass investigate?'));
+  assert.ok(flatBody.includes('What should Starglass investigate?'));
   assert.match(flatBody, /does not approve a Case Plan/);
   assert.match(flatBody, /case-frame\.json/);
   assert.match(flatBody, /Hosted Aculeus Deep Research is a separate product/);

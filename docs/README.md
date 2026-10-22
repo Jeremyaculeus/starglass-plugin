@@ -1,4 +1,4 @@
-# StarGlass native evidence walkthrough
+# Starglass native evidence walkthrough
 
 [MP4](StarGlass-native-evidence-2026-10-02-r2.mp4) · [SRT captions](StarGlass-native-evidence-2026-10-02-r2.srt)
 
