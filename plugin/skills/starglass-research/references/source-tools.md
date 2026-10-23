@@ -58,7 +58,10 @@ from the live schema instead of guessing.
 It returns no dates. Only government hosts are fetchable, through the returned
 `record_id`. A publisher copy such as Municode is discovery only: open it with
 host tools and keep its provenance separate. Queries go to Firecrawl, so send no
-confidential terms without authorization.
+confidential terms without authorization. A fetch that returns
+`source_refused_access` means that host refused the Starglass server (some
+government sites block cloud addresses); open the page with host tools under
+separate provenance rather than retrying.
 
 `courtlistener` fetched text carries outbound "Opinions cited". Inbound
 citations come from `mode: "cited_by"` with `filters.opinion_id` set to the
