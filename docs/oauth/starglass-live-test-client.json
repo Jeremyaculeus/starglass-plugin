@@ -1,0 +1,10 @@
+{
+  "client_id": "https://raw.githubusercontent.com/Jeremyaculeus/starglass-plugin/ccr-ba62e8d1-x3ttm1/docs/oauth/starglass-live-test-client.json",
+  "client_name": "Starglass live test (temporary, Claude Code session)",
+  "client_uri": "https://github.com/Jeremyaculeus/starglass-plugin",
+  "redirect_uris": ["http://127.0.0.1:8765/callback"],
+  "grant_types": ["authorization_code", "refresh_token", "urn:ietf:params:oauth:grant-type:device_code"],
+  "response_types": ["code"],
+  "token_endpoint_auth_method": "none",
+  "scope": "plugin-research:read offline_access"
+}
