@@ -33,6 +33,42 @@ unique. NPPES already searches organization names and other organization names;
 index. Use explicit aliases/wildcards and locations when relevant. Do not substitute
 example identifiers for the actual subject.
 
+## Law and regulation sources
+
+MCP server 0.4.0 adds five catalogue sources. Each appears in `sources_list` as
+`not_configured` until the operator enables it; plan around a source only when
+the live catalogue shows it available, and record its state in the coverage log.
+A server older than 0.4.0 lacks them. Search results are discovery records; use
+`source_fetch` with the returned `record_id`.
+
+| Source | `record_id` | Search | Important scope |
+| --- | --- | --- | --- |
+| `ecfr` | `21/101.91` (title/section) | Keyword. | Current CFR sections through the eCFR API. eCFR is not the official legal edition of the CFR. |
+| `federal_register` | `2024-18519` (document number) | Keyword; `start_date`, `end_date`. | Federal Register documents from 1994. Receipt text is the official GPO edition on GovInfo. |
+| `uscode` | `42/1983` (title/section) | Citation lookup such as "42 U.S.C. 1983". Keyword search needs the server's data.gov key. | Sections from the latest GovInfo annual edition. Editions lag amendments. |
+| `courtlistener` | Opinion id, e.g. `9493766` | Keyword; mode `cited_by` with `filters.opinion_id`. | Opinions from the Free Law Project archive, not the issuing court. |
+| `gov_index` | The exact `record_id` returned by search. Never construct one. | Keyword. | Firecrawl Government Index: third-party discovery across federal, state, county and city pages. Results are never evidence. |
+
+The law filters are `jurisdiction`, `court`, `court_type`, `cites`, `domain` and
+`opinion_id`, with `start_date` and `end_date`. Each source accepts only its own
+subset, and `cited_by` is the one new mode. Read the subset and allowed values
+from the live schema instead of guessing.
+
+`gov_index` always fills the page, so presence in its results is not relevance.
+It returns no dates. Only government hosts are fetchable, through the returned
+`record_id`. A publisher copy such as Municode is discovery only: open it with
+host tools and keep its provenance separate. Queries go to Firecrawl, so send no
+confidential terms without authorization.
+
+`courtlistener` fetched text carries outbound "Opinions cited". Inbound
+citations come from `mode: "cited_by"` with `filters.opinion_id` set to the
+opinion's id.
+
+Fetched law records add `cited_authorities`: deterministic citation extraction
+with canonical ids such as `us:usc:42:1983`, `us:cfr:21:101.91`, `us:fr:89:68034`,
+`us:pl:117:58` and `us:reporter:us:467:837`. These are extracted references, not
+verified authority. Fetch the cited record before relying on it.
+
 ## Search output and completeness
 
 New responses report `mode` and `coverage`: query, filters, requested limit,

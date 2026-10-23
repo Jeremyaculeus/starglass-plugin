@@ -11,7 +11,7 @@ Use the [starglass-research skill](../plugin/skills/starglass-research/SKILL.md)
 when your host loads it. A custom MCP connection alone does not prove that a host
 loaded the skill. MCP server 0.3.5 and later advertise protocol 0.2.5 through
 initialization instructions and `sources_list`, including the same adaptive
-intake policy for skill-free hosts. Client package 0.3.1 is a separate version.
+intake policy for skill-free hosts. Client package 0.4.0 is a separate version.
 Installing it does not prove that the server is updated or that a host follows
 the policy. You can also give the host this workflow and its linked resources.
 
@@ -100,6 +100,16 @@ Every material claim should identify its evidence, entity, date basis, and scope
 Federal transaction obligations, cumulative award values, and actual payments are
 different measures. NPPES reported officials and addresses do not establish
 ownership. Discovery metadata does not replace acquired source context.
+
+MCP server 0.4.0 adds eCFR, Federal Register, U.S. Code, CourtListener and
+Government Index sources, off until the operator enables them (`not_configured`
+in the catalogue). eCFR is not the official edition of the CFR, U.S. Code
+editions lag amendments, and CourtListener is an archive, not the issuing court.
+Government Index results are third-party discovery, never evidence, and carry no
+dates; fetch government-host results through their returned `record_id` and open
+publisher copies such as Municode with host tools under separate provenance.
+`cited_authorities` on a fetched law record are extracted references, not
+verified authority; fetch the cited record before relying on it.
 
 For organization audits, tax returns, board documents, state records, PDFs, or
 user files outside the adapters, use available authorized host tools and retain

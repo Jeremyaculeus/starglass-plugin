@@ -136,6 +136,19 @@ ownership, corporate control, current licensure, or a parent relationship. Track
 alias filters and pagination where exposed. A name search can omit subsidiaries
 or differently named organizations.
 
+**Law, regulation and court records:** when the citation is known, use the
+federal adapters directly: `uscode`, `ecfr`, `federal_register` or `courtlistener`
+by record id. Check currency before a claim turns on current text: eCFR is not the
+official edition of the CFR, U.S. Code editions lag amendments, and a CourtListener
+opinion is an archive copy, not the issuing court's record. `cited_authorities`
+on a fetched record are extracted references, not verified authority; fetch the
+cited record before relying on it. For state and local law, use `gov_index` for
+discovery only: its results are never evidence, always fill the page and carry no
+dates. Fetch a government-host result through its returned `record_id`. Open a
+publisher copy such as Municode with host tools and keep its provenance separate.
+Record the edition or retrieval date of each legal text, and do not read an empty
+or unrelated result as the absence of a law.
+
 **Other adapters:** verify committee, bill, package, and disclosure identifiers
 and record-level scope. FEC individual-contribution data is outside this interface.
 Do not extrapolate a source beyond the catalogue's stated coverage.

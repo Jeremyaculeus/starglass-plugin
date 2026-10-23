@@ -90,7 +90,10 @@ provide equivalent automatic capture in those hosts.
 
 Supported source families are USAspending, SEC filings, FEC committee
 registrations, identified congressional bills, GovInfo publications, lobbying
-disclosures and NPPES organization records. This is not a complete funding
+disclosures and NPPES organization records. MCP server 0.4.0 adds eCFR, Federal
+Register, U.S. Code, CourtListener and Firecrawl Government Index sources; they
+ship off and show as `not_configured` in the catalogue until the operator enables
+them. This is not a complete funding
 ledger, licensure check, tax/audit extractor or arbitrary-URL crawler. Empty
 results do not prove absence. Mechanical evidence checks do not certify truth
 or complete coverage. Use the [research workflow](skills/starglass-research/SKILL.md)

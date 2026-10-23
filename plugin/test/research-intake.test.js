@@ -94,7 +94,7 @@ test('installed skill and skill-free server expose identical core intake policy'
 test('package versions agree and preserve the MCP connection and capture opt-in', () => {
   const manifest = JSON.parse(read('.claude-plugin/plugin.json'));
   const marketplace = JSON.parse(fs.readFileSync(path.join(repoRoot, '.claude-plugin/marketplace.json'), 'utf8'));
-  assert.equal(manifest.version, '0.3.1');
+  assert.equal(manifest.version, '0.4.0');
   assert.equal(marketplace.plugins[0].version, manifest.version);
   assert.ok(fs.existsSync(path.join(pluginRoot, manifest.icon)));
   const mcp = JSON.parse(read('.mcp.json'));

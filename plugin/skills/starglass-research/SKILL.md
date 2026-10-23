@@ -114,7 +114,12 @@ In the first reply, work through these in order and stop where a step says so:
    counterevidence, related entities, and missing periods where relevant. Use
    authorized host search and supplied/local files for audits, PDFs, tax returns,
    board documents, state records, or other uncovered evidence; keep provenance
-   distinct. Never manufacture Starglass receipts for host evidence.
+   distinct. Never manufacture Starglass receipts for host evidence. Law,
+   regulation and court records have catalogue sources (eCFR, Federal Register,
+   U.S. Code, CourtListener and the Government Index) once the operator enables
+   them; follow the research loop's guidance for them. Government Index results
+   are discovery, never evidence, and a `cited_authorities` entry is unverified
+   until its record is fetched.
 5. Synthesize from the case frame and all material evidence, including conflicting
    records. Inspect the source context needed for each conclusion; do not draft
    from discovery snippets or hide acquired records behind a fixed top-k cap.

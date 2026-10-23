@@ -1,8 +1,9 @@
 # Adaptive intake validation
 
 This candidate changes the host-led workflow, not the acquisition or check APIs.
-Release versions are client package 0.3.1, research protocol 0.2.5 and MCP server
-0.3.6. They are independent. The backend must be released separately for
+Release versions are client package 0.4.0, research protocol 0.2.5 and MCP server
+0.3.6 for the intake prompt (MCP server 0.4.0 adds the law sources and includes
+it). They are independent. The backend must be released separately for
 skill-free MCP hosts to receive the new instructions and the `investigate`
 prompt; until that release is deployed, hosts keep the previously deployed
 server's instructions and no prompt.
