@@ -67,6 +67,10 @@ host files/chat workflow; this plugin does not claim equivalent automatic captur
 there. If no authorized file storage is available, preserve the bundle in chat or
 an actually supported export and state that location.
 
+## Prepare evidence without manual bookkeeping
+
+Use the [local evidence companion](local-evidence.md) when host execution is available. It preserves original receipt bytes in memory, indexes acquired passages, derives numeric offsets from explicit quote selections, and assembles dependency-aware checker batches. It writes nothing and does not enable capture. The host owns these mechanics; the user retains scope, consent and substantive research decisions. Unsupported hosts keep the manual workflow below with its limitations disclosed.
+
 ## Populate the record
 
 - [case-frame.json](../templates/case-frame.json): fill question and requested

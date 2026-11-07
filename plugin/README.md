@@ -100,3 +100,7 @@ Publisher: Aculeus, Inc. Support and privacy requests:
 [jeremy@aculeus.ai](mailto:jeremy@aculeus.ai).
 [Privacy](https://aculeus.ai/privacy) · [Terms](https://aculeus.ai/terms) ·
 [MIT license](LICENSE).
+
+## Local evidence companion
+
+The [companion guide](skills/starglass-research/references/local-evidence.md) covers host-owned receipt indexing, exact numeric selections and bounded checker batches. The helper is included inside the installable skill, uses Node.js 18+, and writes no files or network requests. It does not change capture consent or prove MCP authentication.

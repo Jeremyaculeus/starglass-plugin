@@ -33,6 +33,7 @@ function scalar(raw, line) {
 
 // Minimal parser for the flat frontmatter these files use (one nesting level).
 function frontmatter(text) {
+  text = text.replace(/\r\n/g, '\n'); // Windows checkouts preserve valid YAML frontmatter.
   assert.ok(text.startsWith('---\n'), 'frontmatter must open on the first line');
   const end = text.indexOf('\n---\n', 3);
   assert.ok(end > 0, 'frontmatter must close');
