@@ -21,7 +21,7 @@ and never waives privacy or access requirements. Simple bounded lookups, as
 defined below, need no long-research ceremony. Resume an approved saved frame
 after context resets.
 Use [the bundle guide](references/evidence-bundle.md) and its linked templates when
-keeping a portable host-owned record. Load [the review brief](references/skeptical-review.md)
+keeping a portable host-owned record. Use the [local evidence companion](references/local-evidence.md) when Node and host execution are available: let it index original receipts, derive exact offsets from explicit selections, prepare next-page requests from observed continuation and original request context, and assemble bounded checker batches. Keep those mechanical chores with the host, not the user. It does not replace source selection, judgment, consent or actual evidence_check calls. Load [the review brief](references/skeptical-review.md)
 for review, and [host compatibility](references/host-compatibility.md) for host limits.
 Claude Code can optionally save successful Starglass tool events locally when the
 case directory contains the explicitly authorized opt-in marker described in the

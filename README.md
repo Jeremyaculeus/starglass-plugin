@@ -64,3 +64,7 @@ An evidence check evaluates supplied passages, hashes and calculations. It does 
 [Watch the archived 79-second evidence walkthrough](https://raw.githubusercontent.com/Jeremyaculeus/starglass-plugin/main/docs/StarGlass-native-evidence-2026-10-02-r2.mp4) · [Captions](docs/StarGlass-native-evidence-2026-10-02-r2.srt) · [Scope and provenance](docs/README.md)
 
 The walkthrough preserves dated October 2, 2026 operator results. It predates these self-serve trial instructions and is not a fresh trial test, continuous live recording, dedicated reviewer run or directory approval. It uses public/synthetic material. Automatic token renewal remains unverified.
+
+## Host-local evidence preparation
+
+The [local evidence companion](plugin/skills/starglass-research/references/local-evidence.md) indexes original receipts, computes exact numeric offsets from explicit selections and prepares bounded evidence-check batches. It runs inside the research host with Node.js 18+, performs no network requests and creates no files. Readiness reports only observable local state; MCP connection and authentication must be checked in the actual host. The original opt-in capture remains optional and unchanged.

@@ -9,7 +9,7 @@ const { pathToFileURL } = require('node:url');
 const pluginRoot = path.resolve(__dirname, '..');
 const repoRoot = path.resolve(pluginRoot, '..');
 const read = (relative) => fs.readFileSync(path.join(pluginRoot, relative), 'utf8');
-const guide = read('skills/starglass-research/references/research-intake.md');
+const guide = read('skills/starglass-research/references/research-intake.md').replace(/\r\n/g, '\n');
 const rubric = JSON.parse(read('test/research-intake.cases.json'));
 const expectedCaseIds = [
   "fully-specified",
@@ -94,7 +94,7 @@ test('installed skill and skill-free server expose identical core intake policy'
 test('package versions agree and preserve the MCP connection and capture opt-in', () => {
   const manifest = JSON.parse(read('.claude-plugin/plugin.json'));
   const marketplace = JSON.parse(fs.readFileSync(path.join(repoRoot, '.claude-plugin/marketplace.json'), 'utf8'));
-  assert.equal(manifest.version, '0.3.1');
+  assert.equal(manifest.version, '0.3.2');
   assert.equal(marketplace.plugins[0].version, manifest.version);
   assert.ok(fs.existsSync(path.join(pluginRoot, manifest.icon)));
   const mcp = JSON.parse(read('.mcp.json'));
